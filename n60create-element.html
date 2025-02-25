@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <ul id="lista1"></ul>
+
+    <script>
+        const lista1= document.querySelector("#lista1")
+        lista1.innerHTML= `<li>Uno</li>
+                            <li>Dos</li>
+                            <li>Tres</li>
+                            <li>Cuatro</li>`
+        const li1 = document.createElement("li")
+        li1.textContent="Quinto"
+        lista1.append(li1)
+
+        const li2 = document.createElement("li")
+        li2.textContent="Primero"
+        lista1.prepend(li2)
+
+    </script>
+
+    
+</body>
+</html>

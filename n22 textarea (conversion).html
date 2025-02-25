@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <h1>Conversion de oracion</h1>
+    <div>
+        <textarea name="oracion" id="oracion" cols="50" rows="10"></textarea>
+    </div>
+    <div>
+        <input type="button" value="Convertir" name="" id="convertir">
+    </div>
+    <p id="resultado"></p>
+    <script>
+        const palabrasEmoji = [
+            { palabra: "amor", emoji: "❤️" },
+            { palabra: "risa", emoji: "🤣" },
+            { palabra: "gato", emoji: "🐈" },
+            { palabra: "perro", emoji: "🐕" },
+            { palabra: "comida", emoji: "🍗" },
+            { palabra: "sol", emoji: "☀️" },
+            { palabra: "lluvia", emoji: "🌧️" },
+            { palabra: "fiesta", emoji: "🥳" },
+            { palabra: "música", emoji: "🎶" },
+            { palabra: "deporte", emoji: "⚽" }
+        ];
+    
+        document.querySelector("#convertir").addEventListener('click', () =>{
+            const oracion = document.querySelector("#oracion").value.toLowerCase()
+            console.log(oracion)
+            document.querySelector("#resultado").textContent=retornarTransformacion(oracion)
+        } )
+        /*Aca podemos descomponerlo*/
+        function retornarTransformacion(oracion){
+            for(let {palabra,emoji} of palabrasEmoji){
+                oracion = oracion.replaceAll(palabra,emoji)
+            }
+            return oracion
+        }
+    </script>
+    
+
+</body>
+
+</html>

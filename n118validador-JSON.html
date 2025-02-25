@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+    <style>
+        #contenedor {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        #json{
+            width: 92vw;
+            height: 70vh;
+        }
+        #validar{
+            margin: 20px;
+            padding: 10px        ;
+        }
+        .correcto{
+            color: green;
+            background-color: greenyellow;
+        }
+        .incorrecto{
+            color: red;
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contenedor">
+        <h1>Validador de JSON</h1>
+        <textarea name="" id="json"></textarea>
+        <button id="validar">Validar</button>
+        <p id="resultado"></p>
+
+        <script>
+            const json = document.querySelector("#json")
+            const resultado = document.querySelector("#resultado")
+            document.querySelector("#validar").addEventListener('click', () => {
+                try {
+                    const objetoJS = JSON.parse(json.value)
+                    resultado.textContent = "JSON valido"
+                    resultado.classList.add("correcto")
+                    /*resultado.className="correcto"*/
+
+                } catch (error) {
+                    resultado.textContent = "JSON invalido"
+                    resultado.classList.add("incorrecto")
+                    /*resultado.className="incorrecto"*/
+                }
+
+
+            })
+        </script>
+    </div>
+
+</body>
+
+</html>

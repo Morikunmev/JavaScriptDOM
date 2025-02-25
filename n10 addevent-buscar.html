@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <h1>Frase celebre</h1>
+    <p id="frase">Nunca pienso en el futuro. Llega demasiado pronto.</p>
+    <div>
+        <label for="editor1">Ingrese una palabra a buscar en la frase:</label>
+        <input type="text" id="editor1">
+    </div>
+    <div>
+        <input type="button" value="Buscar palabra" id="boton1">
+    </div>
+    <p id="resultado"></p>
+
+    <script>
+        document.querySelector("#boton1").addEventListener('click',()=>{
+            const frase = document.querySelector("#frase").textContent
+            const palabra = document.querySelector("#editor1").value
+            if(frase.includes(palabra)){
+                document.querySelector("#resultado").textContent=`La palabra "${palabra}" esta contenida en la frase `
+            }else{
+                document.querySelector("#resultado").textContent=`La palabra "${palabra}" no esta contenida en la frase `
+            }
+
+        })
+
+    </script>
+</body>
+</html>

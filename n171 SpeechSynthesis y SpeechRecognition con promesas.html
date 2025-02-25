@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" id="boton1" value="Cuanto es la suma de ...?">
+
+  <script>
+    function hablar(texto) {
+      return new Promise((resolver, rechazar) => {
+        const mensaje = new SpeechSynthesisUtterance()
+        mensaje.text = texto
+        mensaje.lang = "es-AR"
+        speechSynthesis.speak(mensaje)
+        mensaje.addEventListener("end", () => {
+          resolver("Ok")
+        })
+        mensaje.addEventListener("error", () => {
+          rechazar("No se pudo reproducir")
+        })
+      })
+    }
+
+    function escuchar() {
+      return new Promise((resolver, rechazar) => {
+        const reconocimiento = new webkitSpeechRecognition()
+        reconocimiento.lang = "es-AR"
+        reconocimiento.start()
+        reconocimiento.addEventListener("result", evento => {
+          resolver(evento.results[0][0].transcript)
+        })
+      })
+    }
+
+    document.querySelector("#boton1").addEventListener("click", () => {
+      jugar()
+    })
+
+    async function jugar() {
+      const nro1 = Math.floor(Math.random() * 9) + 2
+      const nro2 = Math.floor(Math.random() * 9) + 2
+      const resultado = nro1 + nro2
+      await hablar(`Cuanto es ${nro1} mas ${nro2}`)
+      const escucha = await escuchar()
+      if (escucha=="terminar") {
+        await hablar("Gracias por jugar.")
+        return 
+      }
+      const respuestaUsuario = parseInt(escucha)
+      if (isNaN(respuestaUsuario)) {
+        await hablar("Por favor dicta un numero y no seas pillo")
+        return
+      }
+      if (resultado==respuestaUsuario) {
+        await hablar("Muy bien el resultado es "+resultado)
+      } else {
+        await hablar("Es incorrecta tu respuesta. El resultado es "+resultado)
+      }
+      setTimeout(()=>jugar(), 1000)
+    }
+
+
+  </script>
+</body>
+
+</html>

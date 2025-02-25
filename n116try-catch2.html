@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <script>
+        try {
+            const cadena = '{nombre:juan}'
+            const persona = JSON.parse(cadena)
+            alert(persona.nombre)
+            
+        } catch (error) {
+            alert('Formato JSON incorrecto')
+            console.log(error.message) 
+        }
+
+
+    </script>
+    
+</body>
+</html>

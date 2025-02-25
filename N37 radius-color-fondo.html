@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <label for="ancho">Ancho:</label>
+        <input type="number" name="" id="ancho" min="0" max="500" value="200">
+    </div>
+    <div>
+        <label for="alto">Alto:</label>
+        <input type="number" name="" id="alto" min="0" max="500" value="200">
+    </div>
+    <div>
+        <label for="color">Color de fondo: </label>
+        <input type="text" name="" id="color"value="#ff0000">
+    </div>
+    <div>
+        <input type="button" name="" id="actualizar" value="Actualizar">
+    </div>
+    <div id="recuadro" style="width: 200px;height: 200px; background-color: #ff0000;">
+    </div>
+
+    <script>
+        document.querySelector("#actualizar").addEventListener('click',()=>{
+            const recuadro = document.querySelector("#recuadro")
+            recuadro.style.width = document.querySelector("#ancho").value+="px"
+            recuadro.style.height=document.querySelector("#alto").value+="px"
+            recuadro.style.backgroundColor =document.querySelector("#color").value
+
+        })
+    </script>
+    
+</body>
+</html>

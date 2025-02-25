@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+
+    <form id="formulario1" method="post" action="https://www.scratchya.com.ar/cursojs/procesarformulario.php">
+        <div>
+            <label for="nombre">Ingrese nombre de usuario:</label>
+            <input type="text" name="nombre" id="nombre">
+        </div>
+        <div>
+            <label for="email">Ingrese email:</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div>
+            <input type="submit" value="confirmar" name="" id="">
+
+        </div>
+    </form>
+
+    <script>
+        document.querySelector("#formulario1").addEventListener("submit",evento =>{
+            const nombre = document.querySelector("#nombre")
+            const email = document.querySelector("#email")
+            if (nombre.value == '' || email.value==''){
+                alert('Ingrese los 2 datos')
+                evento.preventDefault()
+            }
+
+
+        })
+
+
+    </script>
+    
+</body>
+</html>

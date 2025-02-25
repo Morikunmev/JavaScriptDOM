@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+
+    <style>
+        #rojo {
+            background-color: red;
+            margin: 20px;
+        }
+
+        #verde {
+            background-color: green;
+            margin: 20px;
+        }
+
+        #amarillo {
+            background-color: yellow;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="rojo">
+        Rojo
+        <div id="verde">
+            Verde
+            <div id="amarillo">
+                amarillo
+            </div>
+            Verde
+        </div>
+        Rojo
+    </div>
+    <div id="resultado"></div>
+
+    <script>
+        const resultado = document.querySelector("#resultado")
+
+
+        document.querySelector("#amarillo").addEventListener('click', (evento) => {
+            if (evento.target.id == evento.currentTarget.id) {
+                resultado.innerHTML = "Emisor del evento es el elemento con id: " + evento.target.id + "<br>"
+
+            }
+            resultado.innerHTML += "Captura del evento es el elemento con id: " + evento.currentTarget.id + "<br>"
+
+            evento.stopPropagation()
+        })
+
+        document.querySelector("#verde").addEventListener('click', (evento) => {
+            if (evento.target.id == evento.currentTarget.id) {
+                resultado.innerHTML = "Emisor del evento es el elemento con id: " + evento.target.id + "<br>"
+            }
+            resultado.innerHTML += "Captura del evento es el elemento con id: " + evento.currentTarget.id + "<br>"
+
+            evento.stopPropagation()
+        })
+
+        document.querySelector("#rojo").addEventListener('click', (evento) => {
+            if (evento.target.id == evento.currentTarget.id) {
+                resultado.innerHTML = "Emisor del evento es el elemento con id: " + evento.target.id + "<br>"
+            }
+            resultado.innerHTML += "Captura del evento es el elemento con id: " + evento.currentTarget.id + "<br>"
+        })
+
+    </script>
+
+
+
+</body>
+
+</html>

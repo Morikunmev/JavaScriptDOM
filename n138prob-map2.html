@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <script>
+        const texto ="Grande es la casa pero la grandeza de la casa no se compara con la grandeza del corazon de sus habitantes"
+        const palabras = texto.split(" ")
+
+        const contadorPalabras = new Map()
+        for(let palabra of palabras){
+            if(contadorPalabras.has(palabra)){
+                contadorPalabras.set(palabra, contadorPalabras.get(palabra)+1)
+            }else{
+                contadorPalabras.set(palabra,1)
+            }
+        }
+        console.log(contadorPalabras)
+
+
+        /*copiar el contenido del mapa en un array mediante desestructuracion*/
+        const arreglo = [...contadorPalabras]
+        console.log(arreglo)
+        arreglo.sort((a,b)=>b[1]-a[1])
+        console.log(arreglo)
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        #contenedor{
+            display: flex;
+            justify-content: center;
+            font-size: 40px;
+            font-family: Arial;
+            height: 100vh;
+            align-items: center;
+        }
+        #chiste{
+            text-align: center;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div id="contenedor">
+        <p id="chiste"></p>
+    </div>
+
+    <script>
+        function recuperarChiste(){
+            fetch("https://www.scratchya.com.ar/cursojs/chistealazar.php").then(respuesta => respuesta.json()).then(chiste => mostrar(chiste))
+
+        }
+        function mostrar(chiste){
+            document.querySelector("#chiste").textContent = chiste.descripcion
+        }
+
+        recuperarChiste()
+
+        setInterval(()=>recuperarChiste(),5000)
+
+    </script>
+    
+</body>
+</html>

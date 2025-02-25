@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <form id="formulario1">
+        <div>
+            <label for="montominimo">Monto minimo:</label>
+            <input type="number" name="montominimo" id="montominimo">
+        </div>
+        <div>
+            <label for="montomaximo">Monto maximo:</label>
+            <input type="number" name="montomaximo" id="montomaximo">
+        </div>
+        <div>
+            <input type="submit" name="" id="" value="consultar">
+        </div>
+    </form>
+    <ul id="listaprecios"></ul>
+
+    <script>
+        const formulario1 = document.querySelector("#formulario1")
+        const lista = document.querySelector("#listaprecios")
+
+        formulario1.addEventListener('submit',evento =>{
+            evento.preventDefault()
+            const datosFormulario = new FormData(formulario1)
+            fetch("https://scratchya.com.ar/cursojs/consultarpormonto.php",{method: 'POST',body :datosFormulario}).then(respuesta => respuesta.json()).then(articulos =>{
+                const li = articulos.map(articulo =>`<li>${articulo.nombre} $ ${articulo.precio}</li>` )
+                lista.innerHTML=li.join("")
+            })})
+
+    </script>
+    
+    
+</body>
+</html>

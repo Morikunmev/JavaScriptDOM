@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <link rel="stylesheet" href="/n33SelectorCcss.css">
+    <title></title>
+</head>
+<body>
+    <ul class="tareas">
+        <li class="pendiente">Reunion de trabajo</li>
+        <li class="completada">Hacer ejercicio</li>
+        <li class="pendiente">Ir al banco</li>
+        <li class="completada">Enviar correo electronico</li>
+    </ul>
+    <div>
+        <input type="button" value = "Extraer tareas pendientes"id="mostrar">
+    </div>
+    <p id="resultado"></p>
+
+    <script>
+        document.querySelector("#mostrar").addEventListener('click',()=>{
+            const tareasPendientes = document.querySelectorAll(".pendiente")
+            let tareas = ""
+            tareasPendientes.forEach(tarea => tareas+=tarea.textContent+"<br>")
+            document.querySelector("#resultado").innerHTML=tareas
+        })
+    </script>
+</body>
+</html>

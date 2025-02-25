@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <form id="formulario1">
+        <div>
+            <label for="usuario">Usuario:</label>   
+            <input type="text" name="usuario" id="usuario">
+        </div>
+        <div>
+            <label for="clave">Clave:</label>
+            <input type="password" name="clave" id="clave">
+        </div>
+        <div>
+            <input type="submit" value="Enviar">
+        </div>
+    </form>
+    <p id="resultado"></p>
+
+    <script>
+        const formulario1 = document.querySelector("#formulario1")
+        formulario1.addEventListener('submit',evento=>{
+            evento.preventDefault()
+            const datosFormulario =new FormData(formulario1)
+            fetch("https://www.scratchya.com.ar/cursojs/registrarusuario.php",{
+                method:'POST',body:datosFormulario
+                /*body contiene los datos del formulario que el usuario ha llenado, porque de lo contario se enviaria null*/
+            }).then(respuesta => respuesta.json()).then(usuario =>{
+                document.querySelector("#resultado").innerHTML=`Se registraron los datos en el servidor.<br>Nombre de usuario:${usuario.nombre}<br>Clave: ${usuario.clave}`
+            })
+        })
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <link rel="stylesheet" href="/n34 queryselectorAllselectorCLass.css">
+    <title></title>
+</head>
+<body>
+    <div class="poesia">
+        <p>La luna llena es una <span class="emojis">🪙</span>de plata</p>
+        <p>El viento sopla suave y lleva consigo el aroma de las <span class="emojis">🌹</span></p>
+        <p>Las hojas caen de los arboles como <span class="emojis">🌸</span>en el otoño</p>
+        <p>El mar es un <span class="emojis">🌧️</span> Infinito de azul cristalino</p>
+        <p>Y tu eres <span class="emojis">☀️</span>que ilumina mi camino</p>
+    </div>
+    <div>
+        <input type="button" value="Reemplazar emojis por palabras" id="reemplazar">
+    </div>
+
+
+    <script>
+        const palabrasConEmojis=[
+            {emoji: "🪙", palabra: "luna "},
+            {emoji: "🌹", palabra: "flores "},
+            {emoji: "🌸",palabra: "hojas "},
+            {emoji:"🌧️",palabra: "lluvia "},
+            {emoji: "☀️",palabra:"sol "}
+        ]
+
+        function retornarPalabra(emoji){
+            return palabrasConEmojis.find(palabrasConEmojis =>palabrasConEmojis.emoji ==emoji).palabra
+        }
+
+        document.querySelector("#reemplazar").addEventListener('click',()=>{
+            const dibujos = document.querySelectorAll(".emojis")
+            dibujos.forEach(dibujo =>dibujo.textContent=retornarPalabra(dibujo.textContent))
+        })
+    </script>
+    
+</body>
+</html>

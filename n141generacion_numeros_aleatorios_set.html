@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <script>
+        const conjunto = new Set
+
+        while (conjunto.size <10){
+            const numeroAleatorio = 1 + Math.floor(Math.random()*100)
+            conjunto.add(numeroAleatorio)
+        }
+        console.log(conjunto)
+        const mayorElemento = Math.max(...conjunto)
+        console.log(mayorElemento)
+
+        let sumaTotal = 0
+        conjunto.forEach(Element => sumaTotal+=Element)
+        console.log(sumaTotal)
+
+
+        const numeroAleatorioVerificar = 1 + Math.floor(Math.random()*100)
+        console.log('Numero aleatorio: ', numeroAleatorioVerificar)
+        if(conjunto.has(numeroAleatorioVerificar)){
+            console.log("El numero aleatorio se encuentra en el conjunto")
+        }else{
+            console.log("El numero aleatorio no se encuentra en el conjunto ")
+        }
+
+
+    </script>
+    
+</body>
+</html>

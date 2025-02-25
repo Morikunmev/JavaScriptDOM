@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <ul>
+        <li id="item1">100</li>
+        <li id="item2">8000</li>
+        <li id="item3">400</li>
+    </ul>
+    <p id="mayor"></p>
+
+    <script>
+        const valor1 = parseInt(document.querySelector("#item1").textContent)
+        const valor2 = parseInt(document.querySelector("#item2").textContent)
+        const valor3 = parseInt(document.querySelector("#item3").textContent)
+
+        if(valor1 > valor2 && valor1 > valor3){
+            document.querySelector("#mayor").textContent = valor1
+        }else{
+            if(valor2>valor3){
+                document.querySelector("#mayor").textContent = valor2
+            }else{
+                document.querySelector("#mayor").textContent = valor3
+            }
+        }
+        document.write(typeof(valor2))
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <h1>Valor UTM - EURO - y pesos chilenos</h1>
+
+    <input type="submit" name="" id="ver_utm" value="Ver utm">
+    <input type="submit" name="" id="ver_euro" value="Ver euro">
+    <input type="submit" name="" id="ver_clp" value="Ver CLP">
+
+    <p id="resultado"></p>
+
+    <script>
+        const valor1 = document.querySelector("#ver_utm")
+        const valor2 = document.querySelector("#ver_euro")
+        const valor3 = document.querySelector("#ver_clp")
+
+        valor1.addEventListener('click', evento => {
+            fetch("https://mindicador.cl/api").then(respuesta => respuesta.json()).then(dato => {
+                document.querySelector("#resultado").innerHTML = "El valor de la utm es " + dato.utm.valor
+            })
+        })
+
+        valor2.addEventListener('click', evento => {
+            fetch("https://mindicador.cl/api").then(respuesta => respuesta.json()).then(dato => {
+                document.querySelector("#resultado").innerHTML = "El valor del euro es " + dato.euro.valor
+            })
+        })
+
+        valor3.addEventListener('click', evento => {
+            fetch("https://mindicador.cl/api").then(respuesta => respuesta.json()).then(dato => {
+                document.querySelector("#resultado").innerHTML = "El valor del clp es " + dato.uf.valor
+            })
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>

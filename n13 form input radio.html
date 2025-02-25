@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <label for="valor1">Ingrese primer valor</label>
+        <input type="number" id="valor1">
+    </div>
+    <div>
+        <label for="valor2">Ingrese segundo valor</label>
+        <input type="number" id="valor2">
+    </div>
+    <div>
+        <input type="radio" name="operacion" id="suma">
+        <label for="suma">Suma</label>
+    </div>
+    <div>
+        <input type="radio" name="operacion" id="resta">
+        <label for="resta">Resta</label>
+    </div>
+    <div>
+        <input type="button" value="Operar "id="operar">
+    </div>
+    <p id="resultado"></p>
+    <script>
+        document.querySelector("#operar").addEventListener('click',()=>{
+            const valor1 = parseInt(document.querySelector("#valor1").value)
+            const valor2 = parseInt(document.querySelector("#valor2").value)
+            if(isNaN(valor1)||isNaN(valor2)){
+                document.querySelector("#resultado").textContent="Debe ingresar los 2 numeros"
+                return
+            }
+            const radioSuma = document.querySelector("#suma")
+            const radioResta = document.querySelector("#resta")
+            if(radioSuma.checked){
+                const suma = valor1 + valor2
+                document.querySelector("#resultado").textContent = suma
+            }
+            if(radioResta.checked){
+                const resta = valor1 - valor2
+                document.querySelector("#resultado").textContent = resta
+            }
+        })
+    </script>
+</body>
+</html>

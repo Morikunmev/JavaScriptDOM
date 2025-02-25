@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+
+    <div>
+        <select name="" id="fruta">
+            <option value="">Selecciona una fruta</option>
+            <option value="2.5">Manzana</option>
+            <option value="1.8">Banana</option>
+            <option value="3.4">Naranja</option>
+        </select>
+        <p>El precio de la fruta $ <span id="precio"></span></p>
+    </div>
+    <div>
+        <label for="cuotas">Cantidad de cuotas:</label>
+        <input type="range" min="1" max="10" value="1" name="" id="cuotas">
+        <span id="cantidadcuotas">1</span>
+    </div>
+    
+
+    <script>
+        const fruta = document.querySelector("#fruta")
+        const precio = document.querySelector("#precio")
+        const cuotas = document.querySelector("#cuotas")
+        const cantidadcuotas = document.querySelector("#cantidadcuotas")
+        
+        fruta.addEventListener('change',()=>{
+            if(fruta.value!=""){
+                precio.textContent=fruta.value
+            }else{
+                precio.textContent=""
+            }
+        })
+
+        cuotas.addEventListener('change',()=>{
+            cantidadcuotas.textContent=cuotas.value
+
+        })
+
+
+    </script>
+</body>
+</html>

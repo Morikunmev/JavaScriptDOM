@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+
+    <script>
+        const persona1 = {
+            nombre: 'Richard',
+            edad: 25,
+            altura: 1.75,
+            casado: true,
+            trabajo: null,
+            hijos: ["Juan","Pedro","Jose"],
+            estudios:{
+                primaria: true,
+                secundaria: false
+            }
+        }
+        console.log(typeof persona1)
+        const cadena = JSON.stringify(persona1)
+
+        console.log(cadena)
+
+
+    </script>
+    
+</body>
+</html>

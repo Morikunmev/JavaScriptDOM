@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title>Almacenamiento de Recetas</title>
+</head>
+<body>
+    <div>
+        <label for="nombrereceta">Nombre de la receta: </label>
+        <input type="text" id="nombrereceta">
+    </div>
+    <div>
+        <div>
+            <label for="receta">Receta</label>
+        </div>
+        <textarea id="receta" cols="90" rows="20"></textarea>
+    </div>
+    <div>
+        <input type="button" id="recuperar" value="Recuperar">
+        <input type="button" id="grabar" value="Grabar">
+    </div>
+    <div id="recetaGuardada">
+        <!-- Aquí se mostrará la receta guardada/recuperada -->
+    </div>
+
+    <script>
+        const nombrereceta = document.querySelector("#nombrereceta");
+        const receta = document.querySelector("#receta");
+        const recetaGuardadaDiv = document.querySelector("#recetaGuardada");
+
+        document.querySelector("#grabar").addEventListener('click', () => {
+            if (nombrereceta.value.trim() === '' || receta.value.trim() === '') {
+                alert("Por favor, ingrese un nombre de receta y una descripción antes de grabar.");
+                return;
+            }
+
+            localStorage.setItem(nombrereceta.value, receta.value);
+            alert("Receta registrada con el nombre: " + nombrereceta.value);
+            nombrereceta.value = "";
+            receta.value = "";
+
+            mostrarRecetaGuardada(nombrereceta.value);
+        });
+
+        document.querySelector("#recuperar").addEventListener('click', () => {
+            const contenido = localStorage.getItem(nombrereceta.value);
+            if (contenido !== null) {
+                receta.value = contenido;
+                mostrarRecetaGuardada(nombrereceta.value);
+            } else {
+                alert("No existe una receta con el nombre: " + nombrereceta.value);
+                receta.value = "";
+                recetaGuardadaDiv.innerHTML = "";
+            }
+        });
+
+        function mostrarRecetaGuardada(nombreReceta) {
+            const contenido = localStorage.getItem(nombreReceta);
+            if (contenido !== null) {
+                recetaGuardadaDiv.innerHTML = `<h3>Receta guardada:</h3><p>${contenido}</p>`;
+            }
+        }
+    </script>
+    
+</body>
+</html>

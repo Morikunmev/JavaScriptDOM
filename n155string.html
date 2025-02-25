@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <label for="provincia">Nombre de la provincia:</label>
+        <input type="text" name="" id="provincia">
+        <input type="button" name="" id="buscar" value="Buscar">
+    </div>
+    <p id="temperatura1"></p>
+
+    <script>
+        const temperatura = document.querySelector("#temperatura1")
+        console.log(temperatura)
+        const provincia = document.querySelector("#provincia")
+        document.querySelector("#buscar").addEventListener("click",()=>{
+            retornarTemperatura(provincia.value).then(prov => temperatura.textContent = prov.temperatura).catch(Error => temperatura.textContent = Error)
+        })
+
+        function retornarTemperatura(provincia){
+            return new Promise((resolve, reject) => {
+                fetch("http://scratchya.com.ar/cursojs/recuperartemperatura.php?provincia="+provincia).then(respuesta => respuesta.json()).then(provincia => resolve(provincia)).catch(error => reject("No existe la provincia"))
+            })
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

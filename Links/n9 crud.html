@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <h2>CRUD basico</h2>
+    <!--Agregar elementos-->
+    <input type="text" id="addItemInput" placeholder="Nuevo Elemento">
+    <button id="addItemButton">Agregar</button>
+    <br>
+    <!--Acutalizar elementos-->
+    <input type="text" id="updateItemInput" placeholder="Indice a actualizar">
+    <input type="text" name="" id="newItemValue" placeholder="Nuevo valor">
+    <button id="updateItemButton">Actualizar</button>
+
+    <!--Eliminar elementos-->
+    <br>
+    <input type="text" id="removeItemInput" placeholder="Indice a eliminar">
+    <button id="removeItemButton">Eliminar</button>
+    <br>
+    <!--Buscar Elementos-->
+    <input type="text" id="searchItemInput" placeholder="Valor a Buscar">
+    <button id="searchItemButton">Buscar</button>
+
+    <!--Listado de elementos-->
+    <ul id="itemList">
+
+
+    </ul>
+
+    <script>
+        let items = []
+        
+        function renderList(itemsToRender = items) {
+            const itemList = document.querySelector("#itemList")
+            itemList.innerHTML = ""
+            itemsToRender.forEach((item, index) => {
+                const li = document.createElement("li")
+                li.textContent = `${index + 1}. ${item}`
+                itemList.appendChild(li)
+            })
+        }
+
+        document.querySelector("#addItemButton").addEventListener('click', () => {
+            const newItemInput = document.querySelector("#addItemInput")
+            const newItemValue = newItemInput.value.trim()
+            if (newItemValue !== "") {
+                items.push(newItemValue)
+                newItemInput.value = ""
+                renderList()
+            }
+        })
+
+        document.querySelector("#searchItemButton").addEventListener('click', () => {
+            const searchItemInput = document.querySelector("#searchItemInput")
+            const searchValue = searchItemInput.value.trim()
+            
+            // Filtrar elementos que contengan el valor de búsqueda
+            const filteredItems = items.filter(item => item.includes(searchValue))
+            
+            // Mostrar resultados en la lista
+            renderList(filteredItems)
+        })
+
+        document.querySelector("#updateItemButton").addEventListener('click', () => {
+            const updateItemInput = document.querySelector("#updateItemInput")
+            const newItemValueInput = document.querySelector("#newItemValue")
+            const indexToUpdate = parseInt(updateItemInput.value.trim()) -1
+            const newItemValue = newItemValueInput.value.trim()
+        
+            if (indexToUpdate >= 0 && indexToUpdate < items.length) {
+                items[indexToUpdate] = newItemValue
+                updateItemInput.value = ""
+                renderList()
+            } else {
+                alert("Índice no válido")
+            }
+        })
+
+        document.querySelector("#removeItemButton").addEventListener('click',()=>{
+            const removeItemInput = document.querySelector("#removeItemInput")
+            const indexToRemove = parseInt(removeItemInput.value.trim())-1
+            if(indexToRemove>=0 && indexToRemove<items.length){
+                items.splice(indexToRemove,1)
+                removeItemInput.value=""
+                renderList()
+            }else{
+                alert("Indice no valido")
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

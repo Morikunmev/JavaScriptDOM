@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+
+    <style>
+        body{
+            background-color: yellow;
+            margin: 0;
+        }
+
+        #recuadro{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: aqua;
+            box-sizing: border-box;
+            border: 100px solid black;
+        }
+        #temporizador{
+            font-size: 96px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="recuadro">
+        <span id="temporizador">10</span>
+    </div>
+
+    <script>
+        let contador = 10
+        setInterval(()=>{
+            contador--
+            document.querySelector("#temporizador").textContent=contador
+            if(contador==0){
+                window.location.href="https://www.google.cl/"
+            }
+
+        },1000)
+
+
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        function ordenar(arreglo, cantComparaciones) {
+            if (cantComparaciones > 1) {
+                for (let x = 0; x < cantComparaciones; x++) {
+                    if (arreglo[x] > arreglo[x + 1]) {
+                        const aux = arreglo[x]
+                        arreglo[x] = arreglo[x + 1]
+                        arreglo[x + 1] = aux
+                    }
+                }
+                ordenar(arreglo, cantComparaciones - 1)
+            }
+        }
+        const arreglo = [100, 5, 7, 23, 12, 6]
+        console.log(arreglo)
+        ordenar(arreglo, arreglo.length - 1)
+        console.log(arreglo)
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <h1>Seleccion de tamaño de fuente</h1>
+        <input type="range" min="8"  max="100" value="8" name="" id="selectorfuente">
+        <span id="numneroselector">8</span>
+    </div>
+    <div><p id="parrafo">Este es un parrafo de prueba.</p></div>
+    
+    
+    <script>
+        const selectorfuente = document.querySelector("#selectorfuente")
+        const parrafo = document.querySelector("#parrafo")
+        const numneroselector = document.querySelector("#numneroselector")
+
+        selectorfuente.addEventListener('input',()=>{
+            parrafo.style.fontSize=selectorfuente.value+"px"
+            numneroselector.textContent=selectorfuente.value
+        })
+
+
+    </script>
+
+    
+</body>
+</html>

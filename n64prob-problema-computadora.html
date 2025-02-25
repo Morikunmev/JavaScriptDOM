@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <label for="numero">Ingrese que numero penso la maquina (valor entre 1 y 100)</label>
+        <input type="number" name="" id="numero">
+        <input type="button" name="" id="verificar" value="Verificar"> 
+    </div>
+    <ol id="resultados"></ol>
+
+    <script>
+        const aleatorio = Math.floor(Math.random()*100)+1
+        console.log(aleatorio)
+        const numero = document.querySelector("#numero")
+        const resultados =document.querySelector("#resultados")
+        document.querySelector("#verificar").addEventListener('click',()=>{
+            const li = document.createElement("li")
+            const numeroIngresado = parseInt(numero.value)
+            if(numeroIngresado == aleatorio){
+                li.textContent="Ganaste muy bien el numero que pense es " + aleatorio
+                document.querySelector("#verificar").disabled = true
+            }else{
+                if(numeroIngresado<aleatorio){
+                    li.textContent = "El numero que pense es mayor a "+numeroIngresado
+                }else{
+                    li.textContent = "El numero que pense es menor a "+numeroIngresado
+                }
+                numero.value=""
+            }
+            resultados.append(li)
+        })
+    </script>
+    
+</body>
+</html>

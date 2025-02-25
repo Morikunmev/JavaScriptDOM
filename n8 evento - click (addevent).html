@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <input type="button" id="botonmenos" value="-">
+    <input type="button" id="botonmas" value="+">
+    <p id="resultado">1</p>
+    <script>
+        document.querySelector("#botonmenos").addEventListener('click',()=>{
+            let valor = parseInt(document.querySelector("#resultado").textContent)
+            if(valor>0){
+                valor--
+                document.querySelector("#resultado").textContent = valor
+            }
+        })
+        document.querySelector("#botonmas").addEventListener('click',()=>{
+            let valor = parseInt(document.querySelector("#resultado").textContent)
+            if(valor <10){
+                valor++
+                document.querySelector("#resultado").textContent =valor
+            }
+        })
+    </script>
+</body>
+</html>

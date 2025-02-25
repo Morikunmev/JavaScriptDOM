@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <h1>Valor UTM - EURO - CLP</h1>
+    <div>
+        <label for="">Ingrese la utm: </label>
+        <input type="text" name="" id="valor_utm">
+        <input type="submit" name="" id="ver_clp" value="ver por utm">
+    </div>
+    <div>
+        <label for="">Ingrese el euro: </label>
+        <input type="text" name="" id="valor_euro">
+        <input type="submit" name="" id="ver_euro" value="ver por euro">
+    </div>
+    <div>
+        <label for="">Ingrese el CLP:</label>
+        <input type="text" name="" id="valor_clp">
+        <input type="submit" name="" id="ver_utm" value="ver por clp">
+    </div>
+    <div>
+        <p id="resultado"></p>
+    </div>
+    <script>
+
+        const valor1 = document.querySelector("#ver_clp");
+        const valor2 = document.querySelector("#ver_euro");
+        const valor3 = document.querySelector("#ver_utm");
+
+        valor1.addEventListener('click', evento => {
+            const texto1 = parseFloat(document.querySelector("#valor_utm").value);
+            if (isNaN(texto1)) {
+                document.querySelector("#resultado").innerHTML = "Por favor, ingrese un valor válido para UTM.";
+                return;
+            }
+            fetch("https://mindicador.cl/api").then(respuesta => respuesta.json()).then(dato => {
+                document.querySelector("#resultado").innerHTML = `El valor de ${texto1} UTM es ${dato.utm.valor * texto1} CLP`;
+            });
+        });
+
+        valor2.addEventListener('click',evento =>{
+            const texto2 = parseFloat(document.querySelector("#valor_euro").value)
+            if(isNaN(texto2)){
+                document.querySelector("#resultado").innerHTML="Por favor, ingrese un valor valido para el euro"
+                return
+            }
+            fetch("https://mindicador.cl/api").then(respuesta => respuesta.json()).then(dato =>{
+                document.querySelector("#resultado").innerHTML= `El valor de ${texto2} euros es ${dato.euro.valor * texto2} euros`
+            })
+        })
+
+        valor3.addEventListener('click', evento => {
+            const texto3 = parseFloat(document.querySelector("#valor_clp").value);
+            if (isNaN(texto3)) {
+                document.querySelector("#resultado").innerHTML = "Por favor, ingrese un valor válido para CLP.";
+                return;
+            }
+            fetch("https://mindicador.cl/api").then(respuesta => respuesta.json()).then(dato => {
+                document.querySelector("#resultado").innerHTML = `El valor de ${texto3} CLP es ${(texto3 / dato.utm.valor).toFixed(2)} UTM`;
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

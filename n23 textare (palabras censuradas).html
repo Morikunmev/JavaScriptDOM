@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <h1>Comentarios</h1>
+    <div>
+        <textarea name="comentario" id="comentario" cols="80" rows="10"></textarea>
+    </div>
+    <div>
+        <input type="button" id="confirmar" value="Confirmar">
+    </div>
+    <p id="resultado"></p>
+    <script>
+        const palabrasCensuradas = ["inutil","tonto","bobo"]
+        document.querySelector("#confirmar").addEventListener('click',()=>{
+            const comentarios = document.querySelector("#comentario").value.split(" ")
+            let censura = false
+            for (let palabrasCensurada of palabrasCensuradas){
+                if(comentarios.includes(palabrasCensurada)){
+                    censura=true
+                    break
+                }
+            }
+            if(censura){
+                document.querySelector("#resultado").textContent="Hay palabras ofensivas en el comentario. Por favor modifique sus comentarios"
+            }else{
+                document.querySelector("#resultado").textContent = "Gracias"
+            }
+        })
+    </script>
+    
+</body>
+</html>

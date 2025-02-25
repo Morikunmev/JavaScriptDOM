@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <button id="addItemButton">Añadir Elemento</button>
+    <ul id="itemList">
+        <li>Elemento 1</li>
+    </ul>
+    <script>
+        document.querySelector("#addItemButton").addEventListener('click',()=>{
+            let lista = document.querySelector("#itemList")
+            let nuevoElemento = document.createElement("li")
+            nuevoElemento.textContent = "Elemento " + (lista.children.length + 1)
+            lista.appendChild(nuevoElemento)
+        })
+
+    </script>
+</body>
+</html>

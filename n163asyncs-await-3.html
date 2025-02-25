@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar Imágenes</title>
+</head>
+<body>
+    <input type="button" id="recuperar" value="Recuperar">
+    <div id="fotos"></div>
+
+    <script>
+        function cargarImagen(url) {
+            return new Promise((resolver, rechazar) => {
+                const image = new Image();
+                image.src = url;
+                image.addEventListener('load', () => {
+                    resolver(image);
+                });
+                image.addEventListener('error', () => {
+                    rechazar("Problemas con la imagen");
+                });
+            });
+        }
+
+        const fotos = document.querySelector("#fotos");
+        document.querySelector("#recuperar").addEventListener("click", async () => {
+            try {
+                const promesa1 = cargarImagen("http://scratchya.com.ar/cursojs/imagenes/cara1.jpg");
+                const promesa2 = cargarImagen("http://scratchya.com.ar/cursojs/imagenes/cara2.jpg");
+                const promesa3 = cargarImagen("http://scratchya.com.ar/cursojs/imagenes/cara3.jpg");
+
+                const respuestas = await Promise.all([promesa1, promesa2, promesa3]);
+
+                for (let respuesta of respuestas) {
+                    fotos.appendChild(respuesta);
+                }
+            } catch (error) {
+                fotos.textContent = error;
+            }
+        });
+    </script>
+</body>
+</html>

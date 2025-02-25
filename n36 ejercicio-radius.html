@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <img src="/assets/images.jpeg" alt="cara" id="foto1" style="border-radius: 0%;">
+    </div>
+    <div>
+        <input type="button" name="" id="reducir" value="Reducir">
+        <input type="button" name="" id="aumentar" value="Aumentar">
+    </div>
+    <script>
+        const foto1 = document.querySelector("#foto1")
+        document.querySelector("#reducir").addEventListener('click',()=>{
+            let radio = parseInt(foto1.style.borderRadius)
+            if(radio>0){
+                radio-=5
+                foto1.style.borderRadius=radio+"%"
+            }
+        })
+
+        document.querySelector("#aumentar").addEventListener('click',()=>{
+            let radio = parseInt(foto1.style.borderRadius)
+            if (radio<50){
+                radio+=5
+                foto1.style.borderRadius=radio+"%"
+            }
+
+        })
+
+
+    </script>
+</body>
+</html>

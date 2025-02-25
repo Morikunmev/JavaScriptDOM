@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #contenedor {
+            display: flex;
+            justify-content: center;
+            font-size: 40px;
+            font-family: Arial;
+            height: 100vh;
+            align-items: center;
+        }
+
+        #chiste {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" name="" id="boton1" value="iniciar">
+    <div id="contenedor">
+        <p id="chiste"></p>
+    </div>
+
+    <script>
+        document.querySelector("#boton1").addEventListener('click', () => {
+            recuperarChiste()
+        })
+
+
+        async function recuperarChiste() {
+            try {
+                const respuesta = await fetch("http://www.scratchya.com.ar/cursojs/chistealazar.php")
+                const chiste = await respuesta.json()
+                mostrar(chiste)
+            } catch (error) {
+                console.log("Error de peticion")
+            }
+        }
+
+        function mostrar(chiste) {
+            document.querySelector("#chiste").textContent = chiste.descripcion
+            const mensaje = new SpeechSynthesisUtterance()
+            mensaje.text = chiste.descripcion
+            mensaje.lang="es"
+            speechSynthesis.speak(mensaje)
+            mensaje.addEventListener("end",()=>{
+                setTimeout(()=>{recuperarChiste()},3000)
+            })
+        }
+
+    </script>
+</body>
+
+</html>

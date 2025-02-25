@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+
+    <div>
+        <label for="numero">Ingrese un numero: </label>
+        <input type="number" name="" id="numero">
+    </div>
+    <p id="resultado"></p>
+
+    <script>
+        let cadena1 = 1+"22"+"222"+222
+        console.log(cadena1)
+        console.log(typeof(cadena1))
+        document.querySelector("#numero").addEventListener('keyup',evento =>{
+            if(evento.key =="Enter"){
+                mostrarHasta(parseInt(document.querySelector("#numero").value))
+            }})
+        function mostrarHasta(num){
+            let cadena = ''
+            for(let i=1;i<=num;i++){
+                cadena+=i+" - "
+                console.log(typeof(cadena))
+                console.log(typeof(i))
+            }
+            document.querySelector("#resultado").textContent=cadena
+        }
+
+
+    </script>
+    
+</body>
+</html>

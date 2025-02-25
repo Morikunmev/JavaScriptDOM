@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <ul>
+        <li id="cordoba" latitud = "-31.417" longitud="-64.183">Cordoba</li>
+        <li id="buenosaires" latitud = "-34.421" longitud="-58.4444">Buenos Aires</li>
+        <li id="santafe" latitud = "-31.213112" longitud="-60.183212">Santa Fe</li>
+    </ul>
+    <script>
+        const cordoba = document.querySelector("#cordoba")
+        console.log(cordoba.id) //cordoba atributo estandar - si se crea
+        console.log(cordoba.latitud) //undefined atributo no estandar - no se crea
+        console.log(cordoba.getAttribute("latitud")) // ahora si es accesible
+    </script>
+</body>
+</html>

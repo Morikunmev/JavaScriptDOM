@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <h1>Loteria</h1>
+    <ul>
+        <li id="numeros"></li>
+        <li id="numerosganadores"></li>
+    </ul>
+
+    <script>
+        function generarBolillero(){
+            const bolillero = []
+            while (bolillero.length!=50){
+                const numero = Math.floor(Math.random()*50)+1
+                if(!bolillero.includes(numero)){
+                    bolillero.push(numero)
+                }
+            }
+            return bolillero
+        }
+        const bolillero = generarBolillero()
+        document.querySelector("#numeros").innerHTML="<strong> Numeros del bolillero </strong>" + bolillero.join(" - ")
+
+        document.querySelector("#numerosganadores").innerHTML= "<strong> Numeros ganadores: </strong>" + bolillero.slice(0,6).join(" - ")
+
+
+    </script>
+</body>
+</html>

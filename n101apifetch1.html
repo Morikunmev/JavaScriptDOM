@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+
+    <h1>Prueba API fetch</h1>
+
+    <script>
+        /*const promesa1 = fetch("https://www.scratchya.com.ar/cursojs/recuperararticuloslento.php")
+        const promesa2 = promesa1.then(respuesta =>{
+            console.log("luego de 3 segundos")
+            return respuesta.json()
+
+        })
+        promesa2.then(articulos =>{
+            console.log(articulos)
+        })*/
+        fetch("https://www.scratchya.com.ar/cursojs/recuperararticuloslento.php").then(respuesta => respuesta.json()).then(articulos => console.log(articulos))
+        
+
+    </script>
+
+
+</body>
+
+</html>

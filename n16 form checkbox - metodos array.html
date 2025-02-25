@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <input type="checkbox" id="terror">
+        <label for="terror">Terror</label>
+    </div>
+    <div>
+        <input type="checkbox" name="" id="comedia">
+        <label for="comedia">Comedia</label>
+    </div>
+    <div>
+        <input type="checkbox" name="" id="guerra">
+        <label for="guerra">Guerra</label>
+    </div>
+    <div>
+        <input type="button" value="Ver"id="ver">
+    </div>
+    <p id="resultado"></p>
+
+    <script>
+        const peliculas = [
+            {titulo: "El conjuto",genero:"Terror"},
+            {titulo:"La noche del demonio",genero:"Terror"},
+            {titulo:"El exorcista",genero:"Terror"},
+            {titulo:"La gran estafa",genero:"Comedia"},
+            {titulo:"La mascara",genero:"Comedia"},
+            {titulo:"Rescatando al soldado Ryan",genero:"Guerra"},
+            {titulo:"Apocalipsis Now",genero:"Guerra"},
+            {titulo:"La chaqueta metalica",genero:"Guerra"}
+        ]
+        document.querySelector("#ver").addEventListener('click',()=>{
+            const checkTerror = document.querySelector("#terror")
+            const checkComedia = document.querySelector("#comedia")
+            const checkGuerra = document.querySelector("#guerra")
+            
+            const listado = peliculas.filter(pelicula =>(
+                (checkTerror.checked && pelicula.genero == "Terror") ||
+                (checkComedia.checked && pelicula.genero == "Comedia") ||
+                (checkGuerra.checked && pelicula.genero == "Guerra"))).map(pelicula => `${pelicula.titulo} - ${pelicula.genero}`)
+            document.querySelector("#resultado").innerHTML = listado.join("<br>")
+        })
+
+    </script>
+    
+</body>
+</html>

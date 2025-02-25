@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <h1>Listado de ventas mensuales</h1>
+    <ul>
+        <li>1000</li>
+        <li>500</li>
+        <li>700</li>
+        <li>900</li>
+        <li>1500</li>
+        <li>400</li>
+    </ul>
+    <div>
+        <input type="button" name="" id="calcular" value="calcular">
+    </div>
+    <p id="resultado"></p>
+    <script>
+        document.querySelector("#calcular").addEventListener('click',()=>{
+            const lista = document.querySelectorAll("li")
+            let suma=0
+            for(let elemento of lista){
+                suma+=parseInt(elemento.textContent)
+            }
+            document.querySelector("#resultado").textContent="La suma es "+suma
+
+        })
+    </script>
+</body>
+</html>

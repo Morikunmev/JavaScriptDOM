@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <label for="clave">Ingrese clave a analizar: </label>
+        <input type="text" name="" id="clave">
+        <input type="button" name="" id="agregar" value="Agregar palabra">
+    </div>
+    <h1>Lista de claves</h1>
+    <ul id="listaclaves"></ul>
+    <input type="button" name="" id="verificar" value="verificar">
+    <ul id="resultados"></ul>
+    
+    <script>
+        const clave = document.querySelector("#clave")
+        const listaclaves = document.querySelector("#listaclaves")
+        const resultados = document.querySelector("#resultados")
+
+        document.querySelector("#agregar").addEventListener('click',()=>{
+            const li = document.createElement("li")
+            li.textContent= clave.value
+            listaclaves.append(li)
+            clave.value=''
+        })
+
+        document.querySelector("#verificar").addEventListener('click',evento =>{
+            fetch("https://scratchya.com.ar/cursojs/verificarfortalezaclaves.php",{
+                method: 'POST', body:retornarJSON()
+            }).then(resultado =>resultado.json()).then(claves=>{
+                const lista =claves.map(clave =>`<li>La clave: <strong>${clave.clave}</strong> es ${clave.fortaleza}</li>`)
+                resultados.innerHTML=lista.join("")
+            })
+        })
+        function retornarJSON(){
+            const arreglo = [...document.querySelectorAll("#listaclaves li")]
+            const lista = arreglo.map(clave => clave.textContent)
+            return JSON.stringify(lista)
+
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+.americano{
+    color: green;
+    font-family: 'Verdana';
+}
+.europeo{
+    color: blue;
+    font-family: 'Georgia';
+}
+#mostrar{
+    padding: 5px;
+}
+#resultado{
+    background-color: yellow;
+}

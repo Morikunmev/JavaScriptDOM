@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <ul>
+        <li id="cordoba" data-latitud="-31.417" data-longitud="-64.183">Cordoba</li>
+        <li id="buenosaires" data-latitud="-34.55555" data-longitud="-58.3838">Buenos Aires</li>
+        <li id="santafe" data-latitud="-31.332" data-longitud="-60.18322">Santa Fe</li>
+    </ul>
+    <p id="resultado"></p>
+
+    <script>
+        const cordoba = document.querySelector("#cordoba")
+        const posicion = `Latitud: ${cordoba.dataset.latitud} - Longitud: ${cordoba.dataset.longitud}`
+        document.querySelector("#resultado").textContent=posicion
+
+    </script>
+    
+</body>
+</html>

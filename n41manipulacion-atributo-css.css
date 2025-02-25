@@ -1,0 +1,12 @@
+.clase-1{
+    color: red;
+    font-size: 44px;
+}
+.clase-2{
+    border: 2px solid rgb(0, 0, 255);
+    padding: 10px;
+}
+.clase-3{
+    border: 2px solid rgb(0, 255, 72);
+    padding: 10px;
+}

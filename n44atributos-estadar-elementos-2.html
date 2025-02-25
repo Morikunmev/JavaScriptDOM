@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title>Image Slider</title>
+</head>
+<body>
+    <div>
+        <input type="button" id="anterior" value="Anterior">
+        <input type="button" id="siguiente" value="Siguiente">
+    </div>
+    <div>
+        <img alt="imagen" id="imagen" src="/assets/images1.jpeg">
+    </div>  
+
+    <script>
+        const imagen = document.querySelector("#imagen");
+        let seleccionado = 1;
+
+        function mostrar(seleccionado) {
+            imagen.src = "/assets/images" + seleccionado + ".jpeg";
+        }
+
+        document.querySelector("#anterior").addEventListener('click', () => {
+            if (seleccionado > 1) {
+                seleccionado--;
+                mostrar(seleccionado);
+                ActualizarBotones();
+            }
+        });
+
+        document.querySelector("#siguiente").addEventListener('click', () => {
+            if (seleccionado < 3) {
+                seleccionado++;
+                mostrar(seleccionado);
+                ActualizarBotones();
+            }
+        });
+
+        function ActualizarBotones() {
+            document.querySelector("#anterior").disabled = seleccionado === 1;
+            document.querySelector("#siguiente").disabled = seleccionado === 3;
+        }
+
+        // Inicializar botones en el estado correcto
+        ActualizarBotones();
+    </script>
+</body>
+</html>

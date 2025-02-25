@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+
+    <script>
+        const numero1 = parseFloat(prompt("Ingrese primer valor"))
+        const numero2 = parseFloat(prompt("Ingrese segundo valor"))
+        try{
+            const resultado =dividir(numero1,numero2)
+            alert(resultado)
+
+        }catch(error){
+            alert(error.message)
+        }
+
+        function dividir(v1,v2){
+            if(v2 == 0){
+                throw new Error("No puede dividir por cero")
+            }
+            if(isNaN(v1) || isNaN(v2)){
+                throw new Error("Debe ingresar los dos numeros")
+            }
+            return v1/v2
+        }
+
+    </script>
+    
+</body>
+</html>

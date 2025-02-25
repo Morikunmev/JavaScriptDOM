@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        const usuarios = [
+            {
+                nombre: 'Juan',
+                email: 'juan@example.com',
+                intereses: ['Deportes', 'Música', 'Viajes']
+            },
+            {
+                nombre: 'María',
+                email: 'maria@example.com',
+                intereses: ['Cocina', 'Arte']
+            },
+            {
+                nombre: 'Carlos',
+                email: 'carlos@example.com',
+                intereses: ['Deportes', 'Viajes', 'Arte']
+            },
+            {
+                nombre: 'Laura',
+                email: 'laura@example.com',
+                intereses: ['Música', 'Cocina', 'Viajes']
+            }
+        ]
+
+        const interesesUsuarios = new Set()
+        for(let usuario of  usuarios){
+            for(let interes of usuario.intereses){
+                interesesUsuarios.add(interes)
+            }
+        }
+        console.log(interesesUsuarios)
+
+        usuarios.forEach(usuario => usuario.intereses.forEach(interes =>interesesUsuarios.add(interes)))
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <label for="emojis">Seleccione el emoji</label>
+        <select  id="emojis">
+            <option value="amor">❤️</option>
+            <option value="risa">😀</option>
+            <option value="gato">🐈</option>
+            <option value="perro">🐕</option>
+            <option value="sol">☀️</option>
+            <option value="lluvia">🌧️</option>
+            <option value="música">🎶</option>
+          </select>
+    </div>
+    <div>
+        <label for="palabra">Que palabra representa ese emoji</label>
+        <input type="text" id="palabra">
+    </div>
+    <div>
+        <input type="button" id="verificar" value="verificar">
+    </div>
+    <p id="resultado"></p>
+    <script>
+        document.querySelector("#verificar").addEventListener('click',()=>{
+            const palabra = document.querySelector("#palabra").value
+            const seleccion = document.querySelector("#emojis").value
+            if(palabra==seleccion){
+                document.querySelector("#resultado").textContent = 'Adivinaste la palabra'
+            }else{
+                document.querySelector("#resultado").textContent='La palabra correcta es '+seleccion
+            }
+        })
+    </script>
+    
+</body>
+</html>

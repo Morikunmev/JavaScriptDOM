@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <h1>Conversion de oracion</h1>
+    <div>
+        <textarea name="oracion" id="oracion" cols="50" rows="10"></textarea>
+    </div>
+    <div>
+        <input type="button" value="Convertir" name="" id="convertir">
+    </div>
+    <p id="resultado"></p>
+    <script>
+        const palabrasEmoji = [
+            { palabra: "amor", emoji: "❤️" },
+            { palabra: "risa", emoji: "🤣" },
+            { palabra: "gato", emoji: "🐈" },
+            { palabra: "perro", emoji: "🐕" },
+            { palabra: "comida", emoji: "🍗" },
+            { palabra: "sol", emoji: "☀️" },
+            { palabra: "lluvia", emoji: "🌧️" },
+            { palabra: "fiesta", emoji: "🥳" },
+            { palabra: "música", emoji: "🎶" },
+            { palabra: "deporte", emoji: "⚽" }
+        ];
+    
+        document.querySelector("#convertir").addEventListener('click', () => {
+            let oracion = document.querySelector("#oracion").value.toLowerCase();
+            
+            for (let elemento of palabrasEmoji) {
+                const palabraMinuscula = elemento.palabra.toLowerCase();
+                const emoji = elemento.emoji;
+                
+                // Reemplazo de todas las ocurrencias de la palabra, incluyendo aquellas rodeadas de caracteres especiales
+                let palabras = oracion.split(/(\W+)/); // Separar por palabras manteniendo los delimitadores
+                for (let i = 0; i < palabras.length; i++) {
+                    if (palabras[i].toLowerCase() === palabraMinuscula) {
+                        palabras[i] = emoji;
+                    }
+                }
+                oracion = palabras.join(''); // Unir manteniendo los delimitadores
+            }
+            
+            document.querySelector("#resultado").textContent = oracion;
+        });
+    </script>
+    
+
+</body>
+
+</html>

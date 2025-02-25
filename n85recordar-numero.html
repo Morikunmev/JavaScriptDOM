@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+
+    <style>
+        #recuadro{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            font-size: 24px;
+        }
+        #numero{
+            font-size: 100px;
+        }
+        #numerousuario{
+            padding: 8px;
+            font-size: 25px;
+        }
+        #confirmar{
+            padding: 8px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="recuadro">
+        <p>Recuerda el numero <br> <span id="numero"></span></p>
+        <div><input type="number" name="" id="numerousuario"></div>
+        <div>
+            <input type="button" name="" id="confirmar" value="Confirmar">
+        </div>
+    </div>
+
+
+    <script>
+        function numeroAleatorio(n){
+            const numero = [0,1,2,3,4,5,6,7,8,9]
+            const arreglo = []
+            arreglo.push(numero[Math.floor(Math.random()*9)+1])
+            for(let i=1;i<n;i++){
+                arreglo.push(numero[Math.floor(Math.random()*10)])
+            }
+            return parseInt(arreglo.join(''))
+
+        }
+
+        function mostrarNumero(numeroRecordar){
+            numero.textContent = numeroRecordar
+            numero.style.visibility = "visible"
+            tiempo = setTimeout(()=>{
+                numero.style.visibility = "hidden"
+            },3000)
+        }
+
+
+        let tiempo
+        let cantidadDigitos=1
+        let numeroRecordar = numeroAleatorio(cantidadDigitos)
+        const numero = document.querySelector("#numero")
+
+        mostrarNumero(numeroRecordar)
+
+        document.querySelector("#confirmar").addEventListener('click',()=>{
+            clearTimeout(tiempo)
+            const numeroUsu = parseInt(document.querySelector("#numerousuario").value)
+            if(numeroUsu==numeroRecordar){
+                cantidadDigitos++
+                numeroRecordar=numeroAleatorio(cantidadDigitos)
+                mostrarNumero(numeroRecordar)
+                document.querySelector("#numerousuario").value=''
+            }else{
+                alert("perdiste")
+            }
+
+
+        })
+
+    </script>
+
+
+    
+</body>
+</html>

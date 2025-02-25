@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+
+    <style>
+        .numero{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #444;
+            color: yellow;
+            border-radius: 50%;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 12px #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="numeros"></div>
+
+    <script>
+        const posiciones = []
+        function posicionCorrecta(){
+            let repetir
+            let posx
+            let posy
+            do{
+                repetir=false
+                posx=Math.floor(Math.random()*ancho)
+                posy=Math.floor(Math.random()*alto)
+                for(posicion of posiciones){
+                    if(Math.abs(posx-posicion.x)<50 && Math.abs(posy-posicion.y)<50){
+                        repetir=true
+                    }
+                }
+            }while(repetir)
+            posiciones.push({x:posx,y:posy})
+            return [posx,posy]
+        }
+
+
+        const ancho =window.innerWidth-50
+        const alto = window.innerHeight-50
+        let proximo = 1
+
+        for(let i =1;i<=1000;i++){
+            const div =document.createElement('div')
+            div.classList.add('numero')
+            //const posx = Math.floor(Math.random()*ancho)
+            //const posy = Math.floor(Math.random()*alto)
+            let [posx,posy] = posicionCorrecta()
+            div.style.left = posx+"px"
+            div.style.top=posy+"px"
+            div.textContent=i
+            document.querySelector("#numeros").append(div)
+
+            div.addEventListener('click',evento =>{
+                const valor = parseInt(evento.target.textContent)
+                if(valor==proximo){
+                    proximo=valor+1
+                    evento.target.remove()
+                    if(document.querySelector("#numeros").children.length==0){
+                        alert("Ganaste")
+                    }
+                }else{
+                    alert("perdio")
+                    borrarNumeros()
+                }
+            })
+            function borrarNumeros(){
+                document.querySelector("#numeros").innerHTML=""
+            }
+
+
+        }
+
+
+    </script>
+
+    
+</body>
+</html>

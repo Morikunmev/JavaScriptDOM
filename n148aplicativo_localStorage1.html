@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <div>
+        <label for="nombre">Nombre del contacto: </label>
+        <input type="text" name="" id="nombre">
+    </div>
+    <div>
+        <label for="telefono">Telefono:</label>
+        <input type="tel" name="" id="telefono">
+    </div>
+    <div>
+        <label for="email">Email: </label>
+        <input type="email" name="" id="email">
+    </div>
+    <div>
+        <label for="direccion">Direccion</label>
+        <input type="text" name="" id="direccion">
+    </div>
+    <div>
+        <input type="button" name="" id="recuperar" value="Recuperar">
+        <input type="button" name="" id="guardar" value="Guardar">
+    </div>
+    <script>
+        const nombre = document.querySelector("#nombre")
+        const telefono = document.querySelector("#telefono")
+        const email = document.querySelector("#email")
+        const direccion = document.querySelector("#direccion")
+
+        document.querySelector("#guardar").addEventListener('click', () => {
+            const contacto = {
+                telefono: telefono.value,
+                email: email.value,
+                direccion: direccion.value
+            }
+            localStorage.setItem(nombre.value, JSON.stringify(contacto))
+            nombre.value = ""
+            telefono.value = ""
+            email.value = ""
+            direccion.value = ""
+            alert("Datos grabados")
+        })
+        document.querySelector("#recuperar").addEventListener('click', () => {
+            const contenido = localStorage.getItem(nombre.value)
+            if (contenido != null) {
+                const contacto = JSON.parse(contenido)
+                telefono.value = contacto.telefono
+                email.value = contacto.email
+                direccion.value = contacto.direccion
+            } else {
+                alert("No existe dicho nombre")
+                nombre.value = ""
+                telefono.value = ""
+                email.value = ""
+                direccion.value = ""
+            }
+        })
+    </script>
+
+</body>
+
+</html>

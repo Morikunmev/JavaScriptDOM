@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <ul id="articulos">
+        <li data-procesador="Intel Core ¡5" data-precios="229.99">Intel Core !5</li>
+        <li data-procesador="AMD Ryzen 5" data-precios="199.99">AMD Ryzen 5</li>
+        <li data-procesador="Intel Core ¡7" data-precios="349.99">Intel Core !7</li>
+        <li data-procesador="AMD Ryzen 7" data-precios="299.99">AMD Ryzen 7</li>
+    </ul>
+    <div>
+        <input type="button"id="boton1" value="Mostrar precios">
+    </div>
+    <p id="resultado"></p>
+    <script>
+        document.querySelector("#boton1").addEventListener('click',()=>{
+            const articulos = [...document.querySelectorAll("#articulos li")]
+            document.querySelector("#resultado").innerHTML = 
+                articulos.map(articulo => `${articulo.dataset.procesador} - ${articulo.dataset.precios}`).join("<br>")
+        })
+    </script>
+    
+</body>
+</html>

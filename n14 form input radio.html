@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <div>
+        <p id="frutas"></p>
+    </div>
+    <div>
+        <input type="radio" name="frutas" id="altas">
+        <label for="altas">Altas calorias (>=50)</label>
+    </div>
+    <div>
+        <input type="radio" name="frutas" id="bajas">
+        <label for="bajas">Bajas calorias (&lt;50)</label>
+    </div>
+    <div>
+        <input type="button" value="Ver" id="ver">
+    </div>
+    <p id="resultado"></p>
+
+    <script>
+        const frutas = [
+            { nombre: "manzana", calorias: 52 },
+            { nombre: "banana", calorias: 89 },
+            { nombre: "naranja", calorias: 47 },
+            { nombre: "uva", calorias: 67 },
+            { nombre: "kiwi", calorias: 61 },
+            { nombre: "pera", calorias: 57 },
+            { nombre: "mango", calorias: 99 },
+            { nombre: "piña", calorias: 50 },
+            { nombre: "sandia", calorias: 30 },
+            { nombre: "melon", calorias: 34 }
+        ]
+
+        mostrarFrutas(frutas)
+        function mostrarFrutas(frutas){
+            const nombreFrutas = frutas.map(fruta => fruta.nombre)
+            document.querySelector("#frutas").textContent=nombreFrutas.join(", ")
+        }
+        document.querySelector("#ver").addEventListener('click',()=>{
+            if(document.querySelector("#altas").checked){
+                mostrarTipoFrutas(frutas,"altas")
+            }
+            if(document.querySelector("#bajas").checked){
+                mostrarTipoFrutas(frutas,"bajas")
+            }
+        })
+        function mostrarTipoFrutas(frutas,tipo){
+            let lista
+            switch (tipo){
+                case "bajas":
+                    lista = frutas.filter(fruta => fruta.calorias<50)
+                    break
+                case "altas":
+                    lista = frutas.filter(fruta=>fruta.calorias>=50)
+            }
+            const datos = lista.map(fruta => `${fruta.nombre}=${fruta.calorias} `)
+            document.querySelector("#resultado").innerHTML = datos.join("<br>")
+        }
+
+
+    </script>
+</body>
+
+</html>

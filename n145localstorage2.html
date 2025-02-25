@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <label for="email">Ingrese email:</label>
+        <input type="email" name="" id="email">
+    </div>
+    <div>
+        <input type="button" name="" id="confirmar" value="confirmar">
+    </div>
+    <script>
+        const email = document.querySelector("#email")
+
+        document.querySelector("#confirmar").addEventListener('click',()=>{
+            localStorage.setItem("email",email.value)
+        })
+        const actual = localStorage.getItem("email")
+        if(actual!=null){
+            email.value=actual
+        }
+
+
+
+
+    </script>
+    
+</body>
+</html>

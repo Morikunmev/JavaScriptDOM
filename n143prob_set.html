@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <script>
+        const programadores =[
+            {
+                nombre:"Juan",
+                email:"juan@yahoo.com",
+                lenguajes: new Set(["Java","C++","Python","JavaScript"])
+            },
+            {
+                nombre:"Maria",
+                email:"maria@gmail.com",
+                lenguajes: new Set(["JavaScript","Python","C"])
+            },
+            {
+                nombre:"ana",
+                email:"ana@hotmail.com",
+                lenguajes: new Set(["JavaScript","Go"])
+            }
+        ]
+
+        let lenguajesTotal = new Set()
+        for(let programador of programadores){
+            for(let lenguaje of programador.lenguajes){
+                lenguajesTotal.add(lenguaje)
+            }
+        }
+        console.log(lenguajesTotal)
+        console.log("----")
+
+        let lenguajesComunes = [...programadores[0].lenguajes]
+        console.log("Lenguajes del programador 1 "+ lenguajesComunes)
+
+        for(let programador of programadores){
+            lenguajesComunes = lenguajesComunes.filter(lenguaje => programador.lenguajes.has(lenguaje))
+            console.log(lenguajesComunes)
+        }
+        console.log("Lenguajes comunes " + lenguajesComunes)
+    </script>
+    
+</body>
+</html>

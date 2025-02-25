@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <script>
+
+        /*Para iterar sobre las claves*/
+        for(let x=0;x<localStorage.length;x++){
+            console.log(localStorage.key(x))
+        }
+
+        /*Para iterar sobre los valores*/
+        console.log("-----")
+        for(let x=0;x<localStorage.length;x++){
+            console.log(localStorage.getItem(localStorage.key(x)))
+        }
+    </script>
+    
+</body>
+</html>

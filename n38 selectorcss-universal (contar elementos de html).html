@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <h1>Titulo</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia labore ad facilis culpa aliquam, temporibus animi maiores fuga deleniti adipisci. Autem, laborum dolores consequuntur deleniti minus eos delectus aliquam dolore!</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore accusamus blanditiis quidem ab itaque, perferendis ipsa sapiente, omnis, ea earum totam magni maiores voluptatum veritatis. Maxime esse consectetur ut modi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ipsum pariatur fugit est et similique asperiores ducimus aperiam suscipit repellendus numquam, nulla, odio soluta fugiat? Corrupti at dolor molestiae dolore.</p>
+    <p id="resultado"></p>
+
+    <script>
+        const elementosHTML = document.querySelectorAll("*")
+        const arreglo = []
+        elementosHTML.forEach(elemento => {
+            const referenciaElemento = arreglo.find(elementoArreglo => elementoArreglo[0]==elemento.tagName)
+            if(referenciaElemento==undefined){
+                arreglo.push([elemento.tagName,1])
+            }else{
+                referenciaElemento[1]++
+            }
+        })
+
+        arreglo.sort((a,b)=>b[1]-a[1])
+        document.querySelector("#resultado").innerHTML=arreglo.join("<br>")
+    </script>
+</body>
+</html>

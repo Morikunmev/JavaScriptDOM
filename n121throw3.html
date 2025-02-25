@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <script>
+        const cliente1 ={
+            monto:1000,
+            extraer(dinero){
+                if(dinero>this.monto){
+                    throw new Error("No puede extraer mas de lo depositado")
+                }
+                this.monto-=dinero
+            },
+            imprimir(){
+                alert('Dinero disponible actual '+this.monto)
+            }
+        }
+
+        try {
+            const dinero = parseFloat(prompt("Cuando dinero quiere extraer"))
+            cliente1.extraer(dinero)
+            cliente1.imprimir()
+        } catch (error) {
+            alert(error.message)
+            cliente1.imprimir()
+        }
+
+
+    </script>
+    
+</body>
+</html>

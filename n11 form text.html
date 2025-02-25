@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <div>
+        <label for="nombre">Ingrese primer nombre:</label>
+        <input type="text" id="nombre">
+    </div>
+    <div>
+        <label for="apellido">Ingrese apellido</label>
+        <input type="text" id="apellido">
+    </div>
+    <div>
+        <input type="button" id="generar" value="generar nombres alternativos">
+    </div>
+    <p id="resultados"></p>
+    <script>
+        const nombresMasculinos = [
+            "Juan",
+            "Santiago",
+            "Mateo",
+            "Lucas",
+            "Tomas",
+            "Facundo",
+            "Benjamin",
+            "Alejandro",
+            "Gonzalo",
+            "Ezequiel",
+            "Sergio",
+            "Juan",
+        ]
+        document.querySelector("#generar").addEventListener('click',()=>{
+            generarNombres(document.querySelector("#nombre").value,document.querySelector("#apellido").value)
+        })
+        function generarNombres(nombre,apellido){
+            const nombresCompleto = nombresMasculinos.map(nombresMasculino => `${nombre}${nombresMasculino},${apellido}` )
+            document.querySelector("#resultados").innerHTML=nombresCompleto.join("<br>")
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <label for="editor1">Ingrese primer valor:</label>
+        <input type="number" id="editor1">
+    </div>
+    <div>
+        <label for="editor2">Ingrese segundo valor:</label>
+        <input type="number" id="editor2">
+    </div>
+    <div>
+        <input type="button" name="" id="boton1" value="Sumar">
+        <input type="button" name="" id="boton2" value="Restar">
+    </div>
+    <p>
+        <span>Resultado:</span>
+        <span id="resultado"></span>
+    </p>
+
+    <script>
+        document.querySelector("#boton1").addEventListener('click',()=>{
+            operar('sumar')
+        })
+        document.querySelector("#boton2").addEventListener('click',()=>{
+            operar("restar")
+        })
+
+        function operar(operacion){
+            const valor1 = parseInt(document.querySelector("#editor1").value)
+            const valor2 = parseInt(document.querySelector("#editor2").value)
+            if(operacion=="sumar"){ 
+                const suma = valor1 + valor2
+                document.querySelector("#resultado").textContent=suma
+
+                
+             }
+            if (operacion == "restar"){
+                const resta = valor1 - valor2
+                document.querySelector("#resultado").textContent=resta
+            }}
+
+    </script>
+    
+</body>
+</html>

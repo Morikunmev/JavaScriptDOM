@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <label for="madre">Ingrese un nombre</label>
+        <input type="text" name="" id="nombre">
+        <input type="button" id="confirmar" value="Confirmar">
+    </div>
+    <ul id="listanombres"></ul>
+    <script>
+        const nombre = document.querySelector("#nombre")
+
+        const listanombres = document.querySelector("#listanombres")
+
+        document.querySelector("#confirmar").addEventListener('click',()=>{
+            if(nombre.value.length==0){
+                alert("Debe ingresar un nombre")
+                return
+            }
+            const li = document.createElement("li")
+            li.textContent=nombre.value
+            listanombres.append(li)
+            nombre.value=""
+        })
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

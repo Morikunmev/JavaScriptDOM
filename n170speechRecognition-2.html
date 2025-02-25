@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <input type="button" id="boton1" value="Dictar numero">
+
+    <script>
+      document.querySelector("#boton1").addEventListener("click", () => {
+        const mensaje = new SpeechSynthesisUtterance()
+        mensaje.text = "dicte un numero en castellano"
+        mensaje.lang = "es-AR"
+        speechSynthesis.speak(mensaje)
+        mensaje.addEventListener("end", () => {
+          const reconocimiento = new webkitSpeechRecognition()
+          reconocimiento.lang = "es-AR"
+          reconocimiento.start()
+          reconocimiento.addEventListener("result", evento => {
+            const mensaje = new SpeechSynthesisUtterance()
+            mensaje.lang = "en-US"
+            mensaje.text = evento.results[0][0].transcript
+            speechSynthesis.speak(mensaje)
+          })
+        })
+      })
+    </script>
+</body>
+</html>

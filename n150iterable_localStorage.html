@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="" id="nombre">
+    </div>
+    <div>
+        <div>
+            <label for="comentario">Comentario</label>
+        </div>
+        <textarea name="" id="comentario" cols="50" rows="10"></textarea>
+    </div>
+    <div>
+        <input type="button" name="" id="registrar" value="Registrar">
+    </div>
+    <div>
+        <h2>Visitantes que dejaron sus comentarios</h2>
+        <p id="visitantes"></p>
+    </div>
+
+
+    <script>
+        const nombre = document.querySelector("#nombre")
+        const comentario = document.querySelector("#comentario")
+
+        recuperarUsuarios()
+
+        document.querySelector("#registrar").addEventListener("click",()=>{
+            localStorage.setItem(nombre.value, comentario.value)
+            nombre.value=""
+            comentario.value=""
+            recuperarUsuarios()
+        })
+        function recuperarUsuarios(){
+            let usuario =''
+            for(let x=0; x<localStorage.length;x++){
+                usuario+=localStorage.key(x) + "<br>" + localStorage.getItem(localStorage.key(x))+"<hr>"
+            }
+            document.querySelector("#visitantes").innerHTML= usuario
+        }
+    </script>
+    
+</body>
+</html>

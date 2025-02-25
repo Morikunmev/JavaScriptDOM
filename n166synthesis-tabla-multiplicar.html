@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <label for="numero">Que tabla quiere saber (2 a 10)?</label>
+        <input type="number" name="" id="numero" min="2" max="10">
+    </div>
+    <div>
+        <input type="button" name="" id="recitar" value="Recitar">
+    </div>
+
+    <script>
+        const numero = document.querySelector("#numero")
+        document.querySelector("#recitar").addEventListener('click',()=>{
+            const num = parseInt(numero.value)
+            let tabla = ''
+            for(let x=1;x<=10;x++){
+                tabla+=`${num} por ${x} es ${num*x} `
+            }
+            const mensaje = new SpeechSynthesisUtterance()
+            mensaje.text = tabla
+            mensaje.lang = 'es'
+            mensaje.rate= 0.8
+            speechSynthesis.cancel()
+            speechSynthesis.speak(mensaje)
+
+
+        })
+
+
+
+    </script>
+    
+</body>
+</html>

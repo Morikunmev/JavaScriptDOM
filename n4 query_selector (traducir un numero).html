@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <ul>
+        <li id="item1">1</li>
+        <li id="item2">2</li>
+        <li id="item3">3</li>
+        <li id="item4">4</li>
+    </ul>
+    
+    <script>
+        const numeros = ["uno", "dos","tres","cuatro"]
+        for(let x=1;x<=4;x++){
+            document.querySelector(`#item${x}`).textContent+= `(${numeros[x-1]})`
+
+        }
+        /*
+        document.querySelector("#item1").textContent+=" (uno)"
+        document.querySelector("#item2").textContent+=" (dos)"
+        document.querySelector("#item3").textContent+=" (tres)"
+        document.querySelector("#item4").textContent+="   (cuatro)" */
+
+
+    </script>
+</body>
+</html>

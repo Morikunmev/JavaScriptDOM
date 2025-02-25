@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        const frutas = new Map()
+        // Agregar clave/valor al mapa
+        frutas.set("manzana", "🍎")
+        frutas.set("naranja", "🟠")
+        frutas.set("banana", "🍌")
+        frutas.set("fresa", "🍓")
+        frutas.set("melón", "🍈")
+        frutas.set("uva", "🍇")
+        frutas.set("anana", "💦")
+        frutas.set("sandía", "🍉")
+        frutas.set("limón", "🍋")
+        frutas.set("cereza", "🍒")
+        frutas.set("kiwi", "🥝")
+        frutas.set("kiwi","k")
+        console.log(frutas.size)
+        console.log(frutas.get("anana"))
+        console.log(frutas.get("ciruela"))
+
+        console.log("----")
+        if(frutas.has("naranja")){
+            console.log(frutas.get("anana"))
+        }
+
+
+    </script>
+
+</body>
+
+</html>

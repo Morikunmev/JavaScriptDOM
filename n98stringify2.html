@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+
+    <div>
+        <label for="tarea">Ingrese tarea</label>
+        <input type="text" name="" id="tarea">
+        <input type="button" name="" id="agregar" value="Agregar tarea">
+    </div>
+    <ul id="tareas"></ul>
+    <input type="button" name="" id="generar" value="Generar JSON">
+
+    <script>
+        const tareas = document.querySelector("#tareas")
+        const tarea = document.querySelector("#tarea")
+        document.querySelector("#agregar").addEventListener('click',()=>{
+            const li =document.createElement('li')
+            li.textContent=tarea.value
+            tareas.appendChild(li)
+            tarea.value=''
+        })
+
+        document.querySelector("#generar").addEventListener('click',()=>{
+            const todosLi =document.querySelectorAll("#tareas li")
+            const arreglo = []
+            todosLi.forEach(elemento =>{
+                arreglo.push({tarea:elemento.textContent})
+                console.log(arreglo)
+            })
+            const formatoJSON = JSON.stringify(arreglo)
+            alert(formatoJSON)
+        })
+
+    </script>
+</body>
+</html>

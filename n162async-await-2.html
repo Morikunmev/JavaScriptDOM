@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+    <style>
+        table {
+            border-collapse: collapse;
+            font-family: Arial;
+            width: 80%;
+            margin: 50px auto;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 20px black;
+
+        }
+
+        thead {
+            background-color: #222;
+            color: white;
+        }
+
+        th,
+        td {
+            text-align: center;
+            padding: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <th>nombre</th>
+            <th>bandera</th>
+            <th>capital</th>
+            <th>idioma</th>
+            <th>poblacion</th>
+            <th>moneda</th>
+            <th>limites</th>
+        </thead>
+        <tbody id="paises"></tbody>
+    </table>
+    <script>
+
+        async function recuperarPaises() {
+            try {
+                const respuesta = await fetch("http://www.scratchya.com.ar/cursojs/recuperarpaises.php")
+                const paises = await respuesta.json()
+                imprimir(paises)
+            } catch (error) {
+                console.log(error)
+            }
+
+
+        }
+
+        recuperarPaises()
+        //fetch("https://www.scratchya.com.ar/cursojs/recuperarpaises.php").then(respuesta => respuesta.json()).then(paises => imprimir (paises))
+
+        function imprimir(paises) {
+            const filas = paises.map(pais => `<tr><td>${pais.nombre}</td><td><img src="${pais.bandera}"></td><td>${pais.capital}</td><td>${pais.idioma}</td><td>${pais.poblacion}</td><td>${pais.moneda}</td><td>${pais.limites.map(pais => `${pais}<br>`).join("")}</td></tr>`)
+            document.querySelector("#paises").innerHTML = filas.join("")
+        }
+
+    </script>
+
+
+</body>
+
+</html>

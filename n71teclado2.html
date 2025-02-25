@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+
+    <div>
+        <label for="binario">Ingrese un numero binario: </label>
+        <input type="text" name="" id="binario">
+    </div>
+    <script>
+        document.querySelector("#binario").addEventListener('keydown',(evento)=>{
+            if(evento.key =="Backspace" || evento.key=="ArrowLeft" || evento.key == "ArrowRight")
+            return
+
+            if(evento.key!="0" && evento.key!="1"){
+                evento.preventDefault()
+            }
+        })
+
+
+    </script>
+    
+</body>
+</html>

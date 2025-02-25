@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+
+    <p>Presione las teclas control + alt + h para ayuda</p>
+
+    <script>
+        document.querySelector("body").addEventListener("keydown",(evento)=>{
+            if(evento.ctrlKey && evento.altKey && evento.key.toUpperCase()=="H"){
+                alert("En que puedo ayudarlo")
+            }
+        })
+    </script>
+    
+</body>
+</html>

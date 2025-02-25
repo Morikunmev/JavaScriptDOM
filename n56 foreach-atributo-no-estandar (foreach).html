@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <ul id="actividades">
+        <li data-estado="Completada">Correr</li>
+        <li data-estado="Completada">Desayunar</li>
+        <li data-estado="Completada">Reunion de trabajo</li>
+        <li data-estado="Pendiente">Almorzar</li>
+        <li data-estado="Pendiente">Cenar</li>
+    </ul>
+    <input type="button" id="boton1" value="Cantidad de tareas completadas">
+    
+
+    <script>
+        document.querySelector("#boton1").addEventListener('click',()=>{
+            const actividades = document.querySelectorAll("#actividades li")
+            let cant = 0
+            actividades.forEach(actividad =>{
+                if(actividad.dataset.estado=="Completada")
+                    cant++
+
+            })
+
+
+            alert("Cantidad de tareas completadas " + cant)
+
+
+
+        })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Callback</title>
+</head>
+<body>
+    <script>
+        function hacerTarea(actividad, callback, errorCallback) {
+            setInterval(() => {
+                const aleatorio = Math.random();
+                if (aleatorio >= 0.5) {
+                    callback(actividad + " Finalizó con éxito");
+                } else {
+                    errorCallback(actividad + " no se pudo realizar");
+                }
+            }, 2000);
+        }
+
+        hacerTarea(
+            "depositar el dinero",
+            (resultado) => console.log(resultado),
+            (error) => console.log(error)
+        );
+    </script>
+</body>
+</html>

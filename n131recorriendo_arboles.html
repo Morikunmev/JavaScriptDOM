@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <h1>Titulo</h1>
+    <ul>
+        <li>uno</li>
+        <li>dos</li>
+        <li>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        function retornarNumero(){
+            return Math.floor(Math.random()*256)
+        }
+        function recorrerDOM(nodo){
+            nodo.style.backgroundColor=`rgb(${retornarNumero()},${retornarNumero()},${retornarNumero()})`
+            const hijos = nodo.children
+            for(let hijo of hijos){
+                recorrerDOM(hijo)
+            }
+        }
+        setInterval(()=>{
+            recorrerDOM(document.body)
+        },1000)
+        
+    </script>
+    
+</body>
+</html>

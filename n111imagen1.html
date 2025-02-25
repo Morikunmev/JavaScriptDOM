@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <h1>Agregar marca de agua a la imagen</h1>
+    <form id="formulario1" enctype="multipart/form-data">
+        <div>
+            <label for="texto">Texto de la marca de agua:</label>
+            <input type="text" name="texto" id="texto">
+        </div>
+        <div>
+            <label for="imagen">Imagen:</label>
+            <input type="file" id="imagen" name="imagen" accept="image/jpeg">
+            <div id="imagenoriginal"></div>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        const formulario1 =document.querySelector("#formulario1")
+        const resultado = document.querySelector("#resultado")
+        const imagenOriginal = document.querySelector("#imagenoriginal")
+
+        document.querySelector("#imagen").addEventListener('change',()=>{
+            const archivo =document.querySelector("#imagen").files[0]
+            const urlDelObjeto = URL.createObjectURL(archivo)
+            const img = document.createElement('img')
+            img.src=urlDelObjeto
+            imagenOriginal.appendChild(img)
+        })
+
+        formulario1.addEventListener('submit',(event)=>{
+            event.preventDefault()
+            const datosFormulario = new FormData(formulario1)
+            fetch('https://scratchya.com.ar/cursojs/procesarimagen.php',{
+                method: 'POST',body: datosFormulario
+            }).then(respuesta =>respuesta.blob()).then(blob =>{
+                const urlDelObjeto = URL.createObjectURL(blob)
+                const img = document.createElement('img')
+                img.src =urlDelObjeto
+                resultado.appendChild(img)
+            })
+
+
+        })
+
+
+    </script>
+    
+</body>
+</html>

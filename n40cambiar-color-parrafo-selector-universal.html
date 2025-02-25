@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <h1>Titulo de la pagina</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius temporibus accusamus magni earum nulla quasi
+        quisquam quos repellat natus tempore? Error quas repudiandae ullam nulla tempora odio aut? Possimus, explicabo.
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis asperiores culpa reiciendis sed quod
+        consectetur adipisci eum voluptatem soluta? Temporibus blanditiis itaque earum aliquid aspernatur optio dolorum
+        fugiat beatae minus!</p>
+    <ul>
+        <li>uno</li>
+        <li>dos</li>
+        <li>tres</li>
+    </ul>
+    <input type="button" id="cambiar" value="cambiar el color de parrafos de items de listas">
+
+    <script>
+        document.querySelector("#cambiar").addEventListener('click', () => {
+            //const todos = document.querySelectorAll("*")
+            //todos.forEach(elemento =>{
+            //if(elemento.tagName=="LI" || elemento.tagName=="P"){
+            //    elemento.style.color="#ff0000"
+            //}
+
+            document.querySelectorAll("li, p").forEach(elemento =>
+                elemento.style.color = "red"
+            )
+            document.querySelectorAll("p").forEach(elemento=>
+                elemento.style.color="red"
+            )
+    
+        })
+    </script>
+</body>
+
+</html>

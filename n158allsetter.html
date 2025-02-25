@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <input type="button" name="" id="recuperar" value="Recuperar">
+    <div id="fotos"></div>
+    <script>
+        function cargarImagen(url){
+            return new Promise((resolver,rechazar)=>{
+                const image = new Image()
+                image.src = url
+                image.addEventListener('load',()=>{
+                    resolver(image)
+                })
+                image.addEventListener("error",()=>{
+                    rechazar("Problemas con la imagen")
+                })
+            })
+        }
+
+        const fotos = document.querySelector("#fotos")
+        document.querySelector("#recuperar").addEventListener("click",()=>{
+            const promesa1 = cargarImagen("http://scratchya.com.ar/cursojs/imagenes/cara11.jpg")
+            const promesa2 = cargarImagen("http://scratchya.com.ar/cursojs/imagenes/cara2.jpg")
+            const promesa3 = cargarImagen("http://scratchya.com.ar/cursojs/imagenes/cara3.jpg")
+            Promise.allSettled([promesa1,promesa2,promesa3]).then(respuestas =>{
+                for(let respuesta of respuestas){
+                    if(respuesta.status=="fulfilled"){
+                        fotos.appendChild(respuesta.value)
+                    }
+                }
+            }).catch(error =>fotos.textContent=error)
+
+
+        })
+
+
+
+    </script>
+    
+</body>
+</html>

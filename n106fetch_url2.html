@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <ul id="provincias"></ul>
+    <p id="resultado"></p>
+
+    <script>
+        const provincias = [
+            "Buenos Aires",
+            "Catamarca",
+            "Chaco",
+            "Chubut",
+            "Córdoba",
+            "Corrientes",
+            "Entre Ríos",
+            "Formosa",
+            "Jujuy",
+            "La Pampa",
+            "La Rioja",
+            "Mendoza",
+            "Misiones",
+            "Neuquén",
+            "Río Negro",
+            "Salta",
+            "San Juan",
+            "San Luis",
+            "Santa Cruz",
+            "Santa Fe",
+            "Santiago del Estero",
+            "Tierra del Fuego",
+            "Tucumán"
+        ];
+
+        const lista = provincias.map(provincia =>
+            `<li><a href="https://scratchya.com.ar/cursojs/recuperartemperatura.php?provincia=${provincia}">${provincia}</a></li>`
+            
+        );
+        console.log(lista)
+
+        document.querySelector("#provincias").innerHTML = lista.join("");
+
+        const listaenlaces = document.querySelectorAll("#provincias a");
+
+        listaenlaces.forEach(enlace => {
+            enlace.addEventListener("mouseenter", evento => {
+                evento.preventDefault();
+                recuperarTemperatura(evento.target.href);
+            });
+            enlace.addEventListener('click',evento =>{
+                evento.preventDefault()
+            })
+        });
+
+        function recuperarTemperatura(url) {
+            fetch(url)
+                .then(response => response.json())
+                .then(data => mostrarTemperatura(data))
+                .catch(error => console.error('Error:', error));
+        }
+
+        function mostrarTemperatura(data) {
+            document.querySelector("#resultado").textContent =
+                `Provincia: ${data.provincia}, su temperatura es ${data.temperatura}`;
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Intranet Estudiante | INACAP</title>
+    <base href="/Inacap.Siga.ResumenAcademico/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="shortcut icon" href="https://www.inacap.cl/web/template-aplicaciones/img/favicon.ico" />
+    <link rel="stylesheet" href="https://www.inacap.cl/web/template-aplicaciones/css/mdb.min.css">
+    <link rel="stylesheet" href="/Inacap.Siga.ResumenAcademico/App/styles.f0e3f29a51ef99516ffc.css">
+</head>
+
+<body>
+    <app-root class="d-flex flex-column"></app-root>
+    <script>
+        var config = {
+            id: 3538466,
+            rutUsuario: '19662924',
+            nombreUsuario: 'Richard Rodrigo Rocuant',
+            preferencias: {
+                "oscuro": false,
+                "movil": {
+                    "sincronizar_calendario": false,
+                    "contraste": 0,
+                    "font_size": 1,
+                    "font_range": 4,
+                    "oscuro_automatico": 0,
+                    "color_credencial": "#a33539",
+                    "paleta_color": "blue"
+                }
+            },
+            baseUrl: 'https://siga.inacap.cl/Inacap.Siga.ResumenAcademico'
+        };
+    </script>
+    <script src="/Inacap.Siga.ResumenAcademico/App/runtime.e227d1a0e31cbccbf8ec.js" defer></script>
+    <script src="/Inacap.Siga.ResumenAcademico/App/polyfills-es5.e9fb9d496fb4cee17e9d.js" nomodule defer></script>
+    <script src="/Inacap.Siga.ResumenAcademico/App/polyfills.93177a53ca34ac33f8e7.js" defer></script>
+    <script src="/Inacap.Siga.ResumenAcademico/App/scripts.cc550b11b16c871356ae.js" defer></script>
+    <script src="/Inacap.Siga.ResumenAcademico/App/main.3a1af6cd3e9b15bc7175.js" defer></script>
+    <p id="resultado"></p>
+
+    <script>
+
+        const elementosHTML = document.querySelectorAll("*")
+        const arreglo = []
+        elementosHTML.forEach(elemento => {
+            const referenciaElemento = arreglo.find(elementoArreglo => elementoArreglo[0] == elemento.tagName)
+            if (referenciaElemento == undefined) {
+                arreglo.push([elemento.tagName, 1])
+            } else {
+                referenciaElemento[1]++
+            }
+        })
+
+        arreglo.sort((a, b) => b[1] - a[1])
+        document.querySelector("#resultado").innerHTML = arreglo.join("<br>")
+
+    </script>
+</body>
+
+</html>

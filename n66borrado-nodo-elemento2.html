@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <h1>Frases célebres</h1>
+    <ul id="frases">
+        <li>"La guerra es la continuación de la política por otros medios". - Carl von Clausewitz</li>
+        <li>"La libertad no es nada más que una oportunidad para ser mejor". - Albert Camus</li>
+        <li>"El patriotismo es la virtud de los depravados". - Oscar Wilde</li>
+        <li>"La vida es como una bicicleta, para mantener el equilibrio debes seguir adelante". - Albert Einstein</li>
+        <li>"A veces la guerra es el arte de la paz". - Sun Tzu</li>
+        <li>"La educación es el arma más poderosa que puedes usar para cambiar el mundo". - Nelson Mandela</li>
+        <li>"Amar no es mirarse el uno al otro. Es mirar juntos en la misma dirección". - Antoine de Saint-Exupéry</li>
+    </ul>
+    <input type="button" id="boton1" value="Borrar frases que contengan la palabra 'guerra'">
+
+    <script>
+        document.querySelector("#boton1").addEventListener('click',()=>{
+            const frases = document.querySelectorAll("#frases li")
+            frases.forEach(frase =>{
+                if(frase.textContent.toUpperCase().includes("GUERRA")){
+                    frase.remove()
+                }
+            })
+
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>

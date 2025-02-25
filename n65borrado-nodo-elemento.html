@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <ul id="listausuarios"></ul>
+    <input type="button" id="borrar" value="Borrar usuarios desactivos">
+
+
+    <script>
+        const usuarios = [
+            { nombre: "Richard", estado: true },
+            { nombre: "Andrea", estado: false },
+            { nombre: "Carlos", estado: true },
+            { nombre: "Elena", estado: false },
+            { nombre: "Javier", estado: true },
+            { nombre: "María", estado: false },
+            { nombre: "Lucas", estado: true },
+            { nombre: "Sofía", estado: false },
+            { nombre: "Miguel", estado: true },
+            { nombre: "Camila", estado: false }
+        ];
+
+
+        document.querySelector("#listausuarios").innerHTML=usuarios.map(usuario =>`<li data-estado ="${usuario.estado?'Activo':'Desactivo'}">
+            ${usuario.nombre} - ${usuario.estado?'Activo':'Desactivo'}</li>
+            `
+        ).join("")
+        document.querySelector("#borrar").addEventListener('click',()=>{
+            const lista = document.querySelectorAll("#listausuarios li")
+            lista.forEach(li =>{
+                if(li.dataset.estado =="Desactivo"){
+                    li.remove()
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+    <style>
+        table{
+            border-collapse: collapse;
+            font-family: Arial;
+            width: 80%;
+            margin: 50px auto;
+            background-color: #f9f9f9;
+            box-shadow: 10px 10px 20px black;
+        }
+        thead{
+            background-color: #222;
+            color: white;
+        }
+        th,td{
+            text-align: center;
+            padding: 12px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Autor</th>
+                <th>Genero</th>
+                <th>Fecha publicacion</th>
+            </tr>
+        </thead>
+        <tbody id="libros"></tbody>
+    </table>
+
+
+    <script>
+        const cadena = `[{"titulo": "Cien años de soledad", "autor": "Gabriel García Márquez",
+                      "genero": "Realismo mágico", "añopublicacion": 1967},
+                     {"titulo": "1984", "autor": "George Orwell", "genero": "Ciencia ficción",
+                      "añopublicacion": 1949},
+                     {"titulo": "El señor de los anillos", "autor": "J.R.R. Tolkien",
+                      "genero": "Fantasía épica", "añopublicacion": 1954},
+                     {"titulo": "El código Da Vinci", "autor": "Dan Brown",
+                      "genero": "Ficción de suspense", "añopublicacion": 2003}]`
+        
+        const libros = JSON.parse(cadena)
+        console.log(libros)
+        const filaLibros = libros.map(libro=>`<tr><td>${libro.titulo}</td>
+                                                  <td>${libro.autor}</td>  
+                                                  <td>${libro.genero}</td>
+                                                  <td>${libro.añopublicacion}</td></tr>`)
+        console.log(filaLibros)
+        document.querySelector("#libros").innerHTML=filaLibros.join("")
+
+
+
+    </script>
+
+
+</body>
+
+</html>

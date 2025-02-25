@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <h1>Motores de busqueda</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis vero magni fugit hic sed assumenda harum accusantium, laudantium atque earum itaque architecto, dolores exercitationem, voluptates ratione in amet eum cum?</p>
+    <ul>
+        <li>
+            <a href="https://www.google.cl/">Google</a>
+            -el motor de busqueda mas utilizado en el mundo, con una gran variedad de opciones y servicios.
+        </li>
+        <li>
+            <a href="https://www.bing.com/?setlang=es">Bing</a>
+            -Un motor de busqueda de Microsoft que ofrece resultados de busqueda relevantes y herramientas utiles
+        </li>
+        <li>
+            <a href="https://espanol.yahoo.com/?p=us">Yahoo</a>
+            -Un portal web con un motor de busqueda, noticias, y otros servicios de entretenimiento.
+        </li>
+        <li>
+            <a href="https://duckduckgo.com/">DuckDuck</a>
+            -Un motor de busqueda centrado en la privacidad del usuario, que no recopila ni almacena informacion personal.
+        </li>
+        <li>
+            <a href="https://www.ask.com/">Ask</a>
+            -Un motor de busqueda que ofrece resultados de busqueda basado en preguntas y respuestas, asi como noticias y otros recursos.
+        </li>
+    </ul>
+    <script>
+        const enlaces = document.querySelectorAll("a")
+        enlaces.forEach(elemento => {
+            if(!elemento.hasAttribute("target")){
+                elemento.target="_blank"
+                //elemento.setAttribute("target","_blank")
+            }
+        })
+    </script>
+</body>
+</html>

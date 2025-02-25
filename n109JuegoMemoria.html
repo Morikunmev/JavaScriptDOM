@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <h1>Juego HTML</h1>
+    <div>
+        <label for="etiqueta">Etiqueta HTML</label>
+        <input type="text" name="" id="etiqueta">
+    </div>
+    <h2>Lista</h2>
+    <ul id="listaetiquetas"></ul>
+
+    <script>
+        const etiqueta = document.querySelector("#etiqueta")
+        const listaetiquetas = document.querySelector("#listaetiquetas")
+
+        etiqueta.addEventListener('keyup',evento =>{
+            if(evento.key == "Enter"){
+                const li = document.createElement('li')
+                li.textContent = etiqueta.value
+                listaetiquetas.append(li)
+                etiqueta.value=''
+            }
+        })
+
+        /*Dentro de 15 s se envian al servidor*/
+        setTimeout(()=> validarEtiquetas(),15000)
+
+        function validarEtiquetas(){
+            fetch("https://scratchya.com.ar/cursojs/enviaretiquetashtml.php",{
+                method:'POST',body: retornarJSON() 
+            }).then(respuesta => respuesta.json()).then(etiquetas=>{
+                etiqueta.disabled = true
+                const lista = etiquetas.map(etiqueta =>`<li>${etiqueta.nombre}: ${etiqueta.descripcion}</li>`)
+                listaetiquetas.innerHTML=lista.join("")
+            })
+        }
+
+        function retornarJSON(){
+            const arreglo =[...document.querySelectorAll("#listaetiquetas li")]
+            const lista = arreglo.map(elemento => elemento.textContent)
+            console.log(JSON.stringify(lista))
+            return JSON.stringify(lista)
+        }
+        
+    </script>
+</body>
+</html>

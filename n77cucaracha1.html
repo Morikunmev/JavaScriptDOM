@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<style>
+    .cucaracha{
+        position:absolute;
+        width: 50px;
+        height: 70px;
+    }
+
+
+</style>
+<body>
+    <p>Cantidad de cucarachas pisadas: <span id="cantidad">0</span></p>
+
+    <script>
+        const cantidad = document.querySelector("#cantidad")
+        for(let i=0;i<20;i++){
+            const img = document.createElement("img")
+            img.classList.add('cucaracha')
+            const ancho = window.innerWidth-80
+            const alto = window.innerHeight-80
+            const posx = Math.floor(Math.random()*ancho)
+            const posy = Math.floor(Math.random()*alto)
+            img.style.left=posx+"px"
+            img.style.top=posy+"px"
+            img.src="/assets/cucaracha.png"
+            const grados = Math.floor(Math.random()*360)
+            img.style.transform=`rotate(${grados}deg)`
+            document.body.append(img)
+            img.addEventListener('click',evento=>{
+                evento.target.remove()
+                const actual =parseInt(cantidad.textContent)+1
+                cantidad.textContent=actual
+
+            })
+            
+        }
+
+
+
+    </script>
+
+
+
+    
+</body>
+</html>

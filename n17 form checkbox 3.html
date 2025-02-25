@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <input type="checkbox" id="materia1">
+        <label for="material">Sistemas expertos</label>
+    </div>
+    <div>
+        <input type="checkbox" id="materia2">
+        <label for="materia2">Inteligencia Artificial</label>
+    </div>
+    <div>
+        <input type="checkbox" name="" id="materia3">
+        <label for="materia3">Ciancia de datos</label>
+    </div>
+    <div>
+        <input type="checkbox" name="" id="materia4">
+        <label for="materia4">Programacion grafica</label>
+    </div>
+    <div>
+        <input type="button" value="verificar" id="verificar">
+    </div>
+    <p id="resultado"></p>
+
+    <script>
+        document.querySelector("#verificar").addEventListener("click",()=>{
+            const materia1 = document.querySelector("#materia1")
+            const materia2 = document.querySelector("#materia2")
+            const materia3 = document.querySelector("#materia3")
+            const materia4 = document.querySelector("#materia4")
+            let cant = 0
+            if(materia1.checked){
+                cant++
+            }
+            if(materia2.checked){
+                cant++
+            }
+            if(materia3.checked){
+                cant++
+            }
+            if(materia4.checked){
+                cant++
+            }
+            if(cant<=2){
+                document.querySelector("#resultado").textContent="Selecciono un numero correcto de materias"
+            }else{
+                document.querySelector("#resultado").textContent="No puede seleccionar mas que 2 materias como maximo"
+            }  
+        })
+    </script>
+</body>
+</html>

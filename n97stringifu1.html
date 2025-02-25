@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <label for="nombre">Nombre de usuario: </label>
+        <input type="text" name="" id="nombre">
+    </div>
+    <div>
+        <label for="clave">Ingrese la clave: </label>
+        <input type="password" name="" id="clave">
+    </div>
+    <div>
+        <button id="boton1">Generar formato JSON</button>
+    </div>
+    <p id="resultado"></p>
+
+    <script>
+        document.querySelector("#boton1").addEventListener('click',()=>{
+            const nombre = document.querySelector("#nombre").value
+            const clave = document.querySelector("#clave").value
+            const usuario={
+                nombre,
+                clave
+            }
+            const cadena = JSON.stringify(usuario)
+            console.log(cadena)
+            document.querySelector("#resultado").textContent=cadena
+            console.log(typeof cadena)
+        })
+
+
+    </script>
+</body>
+</html>

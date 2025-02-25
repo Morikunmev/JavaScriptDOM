@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternar Texto</title>
+</head>
+<body>
+    <button id="toggleButton">Alternar Texto</button>
+    <p id="toggleText">Texto A</p>
+    <script>
+        document.querySelector("#toggleButton").addEventListener('click', () => {
+            let texto = document.querySelector("#toggleText").textContent;
+            document.querySelector("#toggleText").textContent = texto == "Texto A" ? "Texto B" : "Texto A";
+        });
+    </script>
+</body>
+</html>

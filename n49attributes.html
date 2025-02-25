@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+
+    <a href="https://www.instagram.com/kassan.n/" id="enlace1" target="_blank">Google</a>
+
+    <p></p>
+
+
+    <script>
+        const enlace1 =document.querySelector("#enlace1")
+        for(let atributo of enlace1.attributes){
+            document.querySelector("p").innerHTML += "Nombre: "+ atributo.name + ", Valor: " +atributo.value + "<br>" 
+        }
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <script>
+        class Persona{
+            constructor(nombre,edad){
+                this.nombre = nombre
+                this.edad = edad
+                this.trabajo = 'sin trabajo'
+            }
+            imprimir(){
+                document.write(`${this.nombre} ${this.edad} ${this.trabajo}<br>`)
+            }
+            fijarTrabajo(trabajo){
+                if(this.edad<14){
+                    throw new Error("Los menores no pueden trabajar")
+                }
+                this.trabajo = trabajo
+
+            }
+        }
+        const persona1 = new Persona("Juan",10)
+        try{
+            persona1.fijarTrabajo("Microsoft")
+            persona1.imprimir()
+        }catch(error){
+            alert(error.message)
+        }
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        const frutas = new Map()
+        // Agregar clave/valor al mapa
+        frutas.set("manzana", "🍎")
+        frutas.set("naranja", "🟠")
+        frutas.set("banana", "🍌")
+        frutas.set("fresa", "🍓")
+        frutas.set("melón", "🍈")
+        frutas.set("uva", "🍇")
+        frutas.set("anana", "💦")
+        frutas.set("sandía", "🍉")
+        frutas.set("limón", "🍋")
+        frutas.set("cereza", "🍒")
+        frutas.set("kiwi", "🥝")
+        
+        //iterar sobre las claves
+        for(let nombres of frutas.keys()){
+            console.log(nombres)
+        }
+        console.log("----")
+        for(let imagen of frutas.values()){
+            console.log(imagen)
+        }
+
+        console.log("----")
+        for(let [nombre,imagen] of frutas.entries()){
+            console.log(nombre,imagen)
+        }
+
+        console.log("----")
+        frutas.forEach((nombre,imagen)=>console.log(nombre,imagen))
+    </script>
+
+</body>
+
+</html>

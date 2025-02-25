@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div>
+        <label for="numeros">Ingrese una serie de numeros separados por coma:</label>
+        <input type="text" name="" id="numeros">
+    </div>
+    <div>
+        <input type="button" name="" id="sumar" value="Sumar">
+    </div>
+
+    <script>
+        const numeros =document.querySelector("#numeros")
+        document.querySelector("#sumar").addEventListener('click',()=>{
+            try {
+                const cadena = `[${numeros.value}]`
+                console.log(cadena)
+                console.log(typeof cadena)
+                const arreglo = JSON.parse(cadena)
+                console.log(arreglo)
+                console.log(typeof arreglo)
+                const suma = arreglo.reduce((acumulador,valor)=>acumulador+valor)
+                alert(suma)
+            } catch (error) {
+                alert("Solo ingrese una lista de numeros separados por coma")
+            }
+
+
+        })
+
+
+    </script>
+    
+</body>
+</html>

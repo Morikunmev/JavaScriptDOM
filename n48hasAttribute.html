@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <a href="https://www.google.cl/" id="enlace1" target="_blank">Google</a>
+    <p id="texto"></p>
+
+    <script>
+        const enlace1 = document.querySelector("#enlace1")
+        let mensaje= ""
+        if(enlace1.hasAttribute("href")){
+            mensaje += "Tiene el atributo href <br>"
+        }
+        if(enlace1.hasAttribute("rel")){
+            mensaje += "Tiene el atributo rel"
+        }else{
+            mensaje+="No tiene el atributo rel"
+        }
+        if(enlace1.hasAttribute("id")){
+            mensaje+="<br>Tiene el atributo id <br>"
+            mensaje+=enlace1.getAttribute("id")
+        }else{
+            mensaje+="<br>No tiene el atributo id"
+        }
+        document.querySelector("#texto").innerHTML=mensaje
+
+    </script>
+
+
+
+    
+</body>
+</html>

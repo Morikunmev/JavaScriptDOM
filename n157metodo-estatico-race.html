@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <script>
+        function retornarArticulos(){
+            return new Promise((resolver,rechazar)=>{
+                fetch("http://scratchya.com.ar/cursojs/recuperararticuloslento.php").then(respuesta => respuesta.json()).then(articulos => resolver(articulos)).catch(error => rechazar("Problemas con la recuperacion de datos"))
+            })
+        }
+        function esperaMaxima(tiempo){
+            return new Promise((resolver,rechazar)=>{
+                setTimeout(()=>rechazar("Servidor fuera de servicio"),tiempo)
+            })
+        }
+        const promesaArticulos = retornarArticulos()
+        const promesaMaxima = esperaMaxima(4000)
+
+        Promise.race([promesaArticulos,promesaMaxima]).then(articulos =>console.log(articulos)).catch(error =>console.log(error))
+
+    </script>
+    
+</body>
+</html>

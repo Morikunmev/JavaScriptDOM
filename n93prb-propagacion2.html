@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <div id="entradas"></div>
+    <p id="resultado">0</p>
+    
+    
+    <script>
+        crearInputs()
+
+        function crearInputs(){
+            const resultado =document.querySelector("#resultado")
+            let cad = ''
+            for(let i=0; i<10;i++){
+                cad+="<div><input type='number'></div>"
+            }
+            document.querySelector("#entradas").innerHTML=cad
+            const entradas =document.querySelectorAll("#entradas input")
+            document.querySelector("#entradas").addEventListener('input',evento =>{
+                let suma=0
+                entradas.forEach(elemento=>{
+                    if(elemento.value!=''){
+                        suma+=parseFloat(elemento.value)
+                    }
+                })
+                resultado.textContent=suma.toFixed(2)})
+        }
+
+
+
+    </script>
+</body>
+</html>

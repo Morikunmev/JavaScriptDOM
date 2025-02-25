@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+    <h1>Chiste del dia</h1>
+    <p id="chiste"></p>
+
+    <script>
+        function retornarChiste(){
+            const chistes = ["Conoci a mi novia en un ascensor. Dise que soy el amor de subida.",
+                "¿Como se llama un booremerang que no vuelve? Palo.",
+                "El otro dia vendi mi aspiradora. Lo unico que hacia era acumular polvo.",
+                "Iba a contar un chiste sobre sodia. Pero Na"
+            ]
+            return chistes[Math.floor(Math.random()*chistes.length)].replace(".","<br>")
+        }
+        document.querySelector("#chiste").innerHTML= retornarChiste()
+
+
+
+    </script>
+</body>
+</html>

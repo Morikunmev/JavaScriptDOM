@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+</head>
+<body>
+
+    <p>Ancho: <span id="x"></span></p>
+    <p>Alto: <span id="y"></span></p>
+
+
+    <script>
+        const x =document.querySelector("#x")
+        const y =document.querySelector("#y")
+        cambiar()
+
+        window.addEventListener('resize',cambiar)
+
+        function cambiar(){
+            x.textContent=window.innerWidth
+            y.textContent=window.innerHeight
+            const color =window.innerWidth/screen.width*255
+            document.body.style.backgroundColor=`rgb(${color},${color},${color})`
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

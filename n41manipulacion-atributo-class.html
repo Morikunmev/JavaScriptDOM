@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="html">
+    <meta name="author" content="Richard Rocuant">
+    <title></title>
+    <link rel="stylesheet" href="/n41manipulacion-atributo-css.css">
+</head>
+<body>
+    <div>
+        <input type="button" name="" id="boton1" value="Agregar clase-1">
+        <input type="button" name="" id="boton2" value="Agregar clase-2">
+        <input type="button" name="" id="boton3" value="Agregar clase-3">
+    </div>
+    <div>
+        <input type="button" name="" id="boton4" value="Eliminar la clase-1">
+        <input type="button" name="" id="boton5" value="Eliminar todas las clases">
+        <input type="button" name="" id="boton6" value="Conmutar clase-1">
+    </div>
+    <h1 id="titulo">Sistema de facturacion</h1>
+    <script>
+        const titulo = document.querySelector("#titulo")
+        document.querySelector("#boton1").addEventListener('click',()=>{
+            titulo.classList.add("clase-1")
+        })
+        document.querySelector("#boton2").addEventListener('click',()=>{
+            titulo.classList.add("clase-2")
+        })
+        document.querySelector("#boton3").addEventListener('click',()=>{
+            titulo.classList.add("clase-3")
+        })
+        document.querySelector("#boton4").addEventListener('click',()=>{
+            titulo.classList.remove("clase-1")
+        })
+        document.querySelector("#boton5").addEventListener('click',()=>{
+            titulo.className=''
+        })
+        document.querySelector("#boton6").addEventListener('click',()=>{
+            titulo.classList.toggle('clase-1')
+
+
+        })
+    </script>
+</body>
+</html>
